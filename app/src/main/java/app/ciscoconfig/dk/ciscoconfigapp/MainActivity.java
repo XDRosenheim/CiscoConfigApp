@@ -18,7 +18,8 @@ public class MainActivity extends AppCompatActivity {
 
     //Variabler på Main Activity
     Intent  intent1;
-    private EditText EditIpAddress, EditPortNr;
+    private EditText EditIpAddress = null;
+    private EditText EditPortNr = null;
     private Button BtnConnect;
 
     @Override
@@ -35,28 +36,28 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if (EditIpAddress != null || !EditIpAddress.getText().equals("") && EditPortNr != null || !EditPortNr.getText().equals(""))
+                {
 
                 try {
-                    String Address = EditIpAddress.getText().toString();
-                    String PortNr = EditPortNr.getText().toString();
+                        String IpAddress = EditIpAddress.getText().toString();
+                        String PortNr = EditPortNr.getText().toString();
 
-                    //Opretter en socket som bruges som Telnet til at connecte til Router.
-                    Socket Sock = new Socket(Address, Integer.parseInt(PortNr));
+                        //Opretter en socket som bruges som Telnet til at connecte til Router.
+                        Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
 
+                        if (Sock.isConnected()) {
+                            intent1 = new Intent(MainActivity.this, HomeActivity.class);
+                            startActivity(intent1);
+                            Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_LONG).show();
+                        }
 
-                    if(Sock.isConnected())
-                    {
-                        intent1 = new Intent(MainActivity.this, HomeActivity.class);
-                        startActivity(intent1);
-                        Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_LONG).show();
+                    }catch(IOException e){
+                        e.printStackTrace();
                     }
-
-
-
-                } catch (UnknownHostException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                }else
+                {
+                    Toast.makeText(getApplicationContext(), "IpAddress & Port Number is Empty or Wrong.", Toast.LENGTH_SHORT);
                 }
             }
         });
