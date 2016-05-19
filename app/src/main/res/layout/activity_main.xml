@@ -32,7 +32,7 @@
 
         <EditText
             android:id="@+id/EditIPAdresse"
-            android:inputType="text"
+            android:inputType="phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:width="20sp"
@@ -54,7 +54,7 @@
             />
         <EditText
             android:id="@+id/EditPortNr"
-            android:inputType="text"
+            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:width="20sp" />
