@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">CiscoConfigApp</string>
-    <string name="app_title">Kage</string>
-    <string name="btn_connect">Forbind</string>
+    <string name="app_title">Cake</string>
+    <string name="btn_connect">Connect</string>
     <string name="btn_telnet">Telnet</string>
-    <string name="ipAddress">IP Adresse</string>
-    <string name="portNumber">Port Nummer</string>
+    <string name="ipAddress">IP Address</string>
+    <string name="portNumber">Port Number</string>
+    <string name="connect_noEntry"><![CDATA[IP Address & Port Number is Empty or Wrong.]]></string>
+    <string name="connect_Connected">Connected</string>
 </resources>
