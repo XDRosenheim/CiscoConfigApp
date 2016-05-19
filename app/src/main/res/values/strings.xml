@@ -1,10 +1,10 @@
 <resources>
     <string name="app_name" translatable="false">Cisco Configuration Tool</string>
-    <string name="app_title">Kage</string>
-    <string name="btn_telnet">Telnet</string>
-    <string name="ipAddress">IP Adresse</string>
-    <string name="btn_connect">Forbind</string>
-    <string name="portNumber">Port Nummer</string>
-    <string name="connect_noEntry"><![CDATA[IP Adresse og Port Nummer er tom eller forkert.]]></string>
-    <string name="connect_Connected">Forbundet</string>
+    <string name="app_title">Cake</string>
+    <string name="connect_btn_telnet">Telnet</string>
+    <string name="connect_label_ipAddress">IP Address</string>
+    <string name="connect_btn_connect">Connect</string>
+    <string name="connect_portNumber">Port Number</string>
+    <string name="connect_noEntry">IP Address and Port Number is Empty or Wrong.</string>
+    <string name="connect_Connected">Connected</string>
 </resources>

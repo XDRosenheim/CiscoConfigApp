@@ -15,7 +15,7 @@
         android:textSize="40sp"
         android:textAllCaps="true"
         android:textColor="@color/colorAccent"
-        android:text="@string/btn_telnet" />
+        android:text="@string/connect_btn_telnet" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -26,7 +26,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/ipAddress"
+            android:text="@string/connect_label_ipAddress"
             android:textSize="20sp"
             />
 
@@ -49,7 +49,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/portNumber"
+            android:text="@string/connect_portNumber"
             android:textSize="20sp"
             />
         <EditText
@@ -72,7 +72,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="30sp"
-            android:text="@string/btn_connect"
+            android:text="@string/connect_btn_connect"
             android:onClick="BtnConnection_OnClick"/>
 
 
