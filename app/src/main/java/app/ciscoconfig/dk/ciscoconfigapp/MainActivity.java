@@ -56,7 +56,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean checkIPPort(String ip, int port) {
         try {
             String[] parts = ip.split( "\\." );
-            for ()
+            for (String s: parts) {
+                //Do stuff
+            }
         } catch(NumberFormatException nfe) {
             return false;
         }
