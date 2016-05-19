@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name" translatable="false">CiscoConfigApp</string>
+    <string name="app_name" translatable="false">Cisco Configuration Tool</string>
     <string name="app_title">Cake</string>
     <string name="btn_telnet">Telnet</string>
     <string name="ipAddress">IP Address</string>
