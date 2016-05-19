@@ -5,7 +5,7 @@
     <string name="connect_btn_connect">Forbind</string>
     <string name="connect_btn_telnet">Telnet</string>
     <string name="connect_Connected">Forbundet</string>
-    <string name="connect_noEntry">IP Adresse og Port Nummer er tom eller forkert.</string>
+    <string name="connect_noEntry">IP adresse og/eller port nummer er tom eller ikke gyldig.</string>
     <string name="connect_label_ipAddress">IP Adresse</string>
     <string name="connect_portNumber">Port Nummer</string>
 </resources>
