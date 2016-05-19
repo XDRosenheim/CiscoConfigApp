@@ -37,10 +37,9 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         String IpAddress = EditIpAddress.getText().toString();
                         String PortNr = EditPortNr.getText().toString();
-
+                        Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_LONG).show();
                         //Opretter en socket som bruges som Telnet til at connecte til Router.
                         Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
-
                         if (Sock.isConnected()) {
                             intent1 = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(intent1);
@@ -52,6 +51,15 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private boolean checkIPPort(String ip, int port) {
+        try {
+            String[] parts = ip.split( "\\." );
+            for ()
+        } catch(NumberFormatException nfe) {
+            return false;
+        }
     }
 }
 

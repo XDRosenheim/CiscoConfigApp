@@ -3,80 +3,56 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
     android:gravity="center|top"
-    tools:context="app.ciscoconfig.dk.ciscoconfigapp.MainActivity"
-    android:weightSum="1">
+    android:orientation="vertical"
+    android:padding="@dimen/activity_vertical_margin"
+    android:weightSum="1"
+    tools:context="app.ciscoconfig.dk.ciscoconfigapp.MainActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="40sp"
+        android:text="@string/connect_btn_telnet"
         android:textAllCaps="true"
         android:textColor="@color/colorAccent"
-        android:text="@string/connect_btn_telnet" />
+        android:textSize="40sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="start"
+        android:orientation="vertical"
         android:padding="16dp"
-        android:layout_gravity="start">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/connect_label_ipAddress"
-            android:textSize="20sp"
-            />
+        android:layout_weight="0.79">
 
         <EditText
             android:id="@+id/EditIPAdresse"
-            android:inputType="phone"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:width="20sp"
-            android:layout_weight="2" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="352dp"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:layout_gravity="start">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/connect_portNumber"
-            android:textSize="20sp"
-            />
-        <EditText
-            android:id="@+id/EditPortNr"
-            android:inputType="number"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:width="20sp" />
+            android:hint="@string/connect_ipAddress"
+            android:inputType="phone" />
 
+        <EditText
+            android:id="@+id/EditPortNr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/connect_portNumber"
+            android:inputType="number" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="256dp"
         android:gravity="bottom">
 
         <Button
             android:id="@+id/BtnConnecting"
-            android:layout_gravity="bottom"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
+            android:layout_gravity="bottom"
+            android:onClick="BtnConnection_OnClick"
             android:text="@string/connect_btn_connect"
-            android:onClick="BtnConnection_OnClick"/>
-
-
-
+            android:textSize="30sp" />
     </LinearLayout>
 
 </LinearLayout>

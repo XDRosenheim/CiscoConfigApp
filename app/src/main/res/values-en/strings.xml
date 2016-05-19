@@ -3,8 +3,9 @@
     <string name="app_title">Cake</string>
     <string name="connect_btn_connect">Connect</string>
     <string name="connect_btn_telnet">Telnet</string>
-    <string name="connect_label_ipAddress">IP Address</string>
+    <string name="connect_ipAddress">IP Address</string>
     <string name="connect_portNumber">Port Number</string>
     <string name="connect_noEntry">IP address and/or port number is empty or invalid.</string>
     <string name="connect_Connected">Connected</string>
+    <string name="connect_connecting">Connecting...</string>
 </resources>
