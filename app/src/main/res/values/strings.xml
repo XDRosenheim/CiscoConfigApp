@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">CiscoConfigApp</string>
+    <string name="app_name" translatable="false">CiscoConfigApp</string>
+    <string name="app_title">Cake</string>
+    <string name="btn_telnet">Telnet</string>
+    <string name="ipAddress">IP Address</string>
+    <string name="btn_connect">Connect</string>
+    <string name="portNumber">Port Number</string>
 </resources>

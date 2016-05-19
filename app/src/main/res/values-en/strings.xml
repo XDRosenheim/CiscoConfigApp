@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">CiscoConfigApp</string>
+    <string name="app_title">Kage</string>
+    <string name="btn_connect">Forbind</string>
+    <string name="btn_telnet">Telnet</string>
+    <string name="ipAddress">IP Adresse</string>
+    <string name="portNumber">Port Nummer</string>
+</resources>
