@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_vertical_margin"
+    tools:context="app.ciscoconfig.dk.ciscoconfigapp.GuidesActivity"
+    android:orientation="vertical"
+    android:gravity="center|top">
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/guides_Guides"
+        android:textAllCaps="true"
+        android:textColor="@color/colorAccent"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/Btn_Guides_IsoModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/guides_iso_model"
+        android:textSize="30sp"
+        android:onClick="Btn_Guides_IsoModel"/>
+
+    <Button
+        android:id="@+id/Btn_Guides_CiscoModels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/guides_cisco_models"
+        android:textSize="30sp"
+        android:onClick="Btn_Guides_CiscoModels"/>
+
+    <Button
+        android:id="@+id/Btn_Guides_RouterConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/guides_router_config"
+        android:textSize="30sp"
+        android:onClick="Btn_Guides_RouterConfig"/>
+
+    <Button
+        android:id="@+id/Btn_Guides_SwitchConfig"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/guides_Switch_Config"
+        android:textSize="30sp"
+        android:onClick="Btn_Guides_SwitchConfig"/>
+
+
+    <Button
+        android:id="@+id/Btn_Guides_Google"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/guides_vejen_til_google"
+        android:textSize="30sp"
+        android:onClick="Btn_Guides_Google"/>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="40dp"
+        android:paddingBottom="10dp"
+        android:gravity="end">
+
+        <Button
+            android:id="@+id/Btn_Guides_BackToMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:text="@string/guides_gobacktostart"
+            android:textSize="30sp"
+            android:onClick="Btn_Guides_BackToMain"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

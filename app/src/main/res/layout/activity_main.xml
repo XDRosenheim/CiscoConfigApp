@@ -36,6 +36,7 @@
             android:id="@+id/EditPortNr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:maxLength="5"
             android:hint="@string/connect_portNumber"
             android:inputType="number" />
     </LinearLayout>
@@ -43,16 +44,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="256dp"
-        android:gravity="bottom">
+        android:gravity="bottom"
+        android:orientation="vertical">
 
         <Button
             android:id="@+id/BtnConnecting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
+
             android:onClick="BtnConnection_OnClick"
             android:text="@string/connect_btn_connect"
             android:textSize="30sp" />
+
+        <Button
+            android:id="@+id/BtnGuides"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:textSize="30sp"
+            android:onClick="BrnGuides_OnClick"
+            android:text="@string/connect_Guides"/>
+
+
+
     </LinearLayout>
 
 </LinearLayout>
