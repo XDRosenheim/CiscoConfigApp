@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Intent intent1;
     private EditText EditIpAddress = null;
     private EditText EditPortNr = null;
-    private Button BtnConnect;
+    private Button BtnConnect, BtnGuides;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +42,9 @@ public class MainActivity extends AppCompatActivity {
                     Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
                     if (Sock.isConnected()) {
                         intent1 = new Intent(MainActivity.this, HomeActivity.class);
+                        Bundle IpAdresseAndPort = new Bundle();
+                        IpAdresseAndPort.putInt(IpAddress, Integer.parseInt(PortNr));
+                        intent1.putExtras(IpAdresseAndPort);
                         startActivity(intent1);
                         Toast.makeText(getApplicationContext(), R.string.connect_Connected, Toast.LENGTH_LONG).show();
                     }
@@ -51,10 +54,24 @@ public class MainActivity extends AppCompatActivity {
             }
             }
         });
+
+        BtnGuides = (Button)findViewById(R.id.BtnGuides);
+        BtnGuides.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Her skal der vises en liste af forskellige guides.
+
+                Intent intentGuide = new Intent(MainActivity.this, GuidesActivity.class);
+                startActivity(intentGuide);
+
+            }
+        });
+
+
     }
 
     private boolean checkIPPort(String ip, int port) {
-        try {
+        try { //Checker at der bliver skrevet en Ip-adresse og ikke bare en masse random tal.
             if (ip == null || ip.length() != 4) return false;
             String[] parts = ip.split("\\.");
             for (String s : parts) {
@@ -68,5 +85,7 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
+
+
 }
 
