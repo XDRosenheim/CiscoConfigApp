@@ -31,32 +31,38 @@ public class MainActivity extends AppCompatActivity {
         BtnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-            if (checkIPPort(EditIpAddress.getText().toString(), Integer.parseInt(EditPortNr.getText().toString()))) {
-                Toast.makeText(getApplicationContext(), R.string.connect_noEntry, Toast.LENGTH_SHORT).show();
-            } else {
-                try {
-                    String IpAddress = EditIpAddress.getText().toString();
-                    String PortNr = EditPortNr.getText().toString();
-                    Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_LONG).show();
-                    //Opretter en socket som bruges som Telnet til at connecte til Router.
-                    Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
-                    if (Sock.isConnected()) {
-                        intent1 = new Intent(MainActivity.this, HomeActivity.class);
-                        startActivity(intent1);
-                        Toast.makeText(getApplicationContext(), R.string.connect_Connected, Toast.LENGTH_LONG).show();
+                if (!checkIPPort(EditIpAddress.getText().toString(), EditPortNr.getText().toString())) {
+                    try {
+                        String IpAddress = EditIpAddress.getText().toString();
+                        String PortNr = EditPortNr.getText().toString();
+                        Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_LONG).show();
+                        //Opretter en socket som bruges som Telnet til at connecte til Router.
+                        Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
+                        if (Sock.isConnected()) {
+                            intent1 = new Intent(MainActivity.this, HomeActivity.class);
+                            startActivity(intent1);
+                            Toast.makeText(getApplicationContext(), R.string.connect_Connected, Toast.LENGTH_LONG).show();
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                } catch (IOException e) {
-                    e.printStackTrace();
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.connect_noEntry, Toast.LENGTH_SHORT).show();
                 }
-            }
             }
         });
     }
 
-    private boolean checkIPPort(String ip, int port) {
+    private boolean checkIPPort(String ip, String port) {
         try {
-            if (ip == null || ip.length() != 4) return false;
+            int i = Integer.parseInt(port);
+            if ( i > 65535 ) return false;
+        } catch (NumberFormatException nfe) {
+            // Do nothing. Use default port.
+        }
+        try {
             String[] parts = ip.split("\\.");
+            if (parts.length != 4) return false;
             for (String s : parts) {
                 int i = Integer.parseInt(s);
                 if ((i < 1) || (i > 255)) {
@@ -69,4 +75,3 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
-
