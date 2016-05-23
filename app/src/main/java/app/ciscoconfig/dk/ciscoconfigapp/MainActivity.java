@@ -19,7 +19,8 @@ import java.net.Socket;
 public class MainActivity extends AppCompatActivity {
 
     //Variabler på Main Activity
-    Intent intent1;
+    Intent ToConf;
+    Intent ToGuide;
     private EditText EditIpAddress = null;
     private EditText EditPortNr = null;
     private Button BtnConnect, BtnGuides;
@@ -46,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
                         //Opretter en socket som bruges som Telnet til at connecte til Router.
                         Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
                         if (Sock.isConnected()) {
-                            intent1 = new Intent(MainActivity.this, HomeActivity.class);
-                            startActivity(intent1);
+                            ToConf = new Intent(MainActivity.this, HomeActivity.class);
+                            startActivity(ToConf);
                             Toast.makeText(getApplicationContext(), R.string.connect_Connected, Toast.LENGTH_LONG).show();
                         }
                     } catch (IOException e) {
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         BtnGuides.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent ToGuide = new Intent(MainActivity.this, GuidesActivity.class);
+                ToGuide = new Intent(MainActivity.this, GuidesActivity.class);
                 startActivity(ToGuide);
             }
         });
@@ -86,9 +87,7 @@ public class MainActivity extends AppCompatActivity {
         try {
             int i = Integer.parseInt(port);
             if (i > 65535) return false;
-        } catch (NumberFormatException nfe) {
-            // Do nothing. Use default port.
-        }
+        } catch (NumberFormatException nfe) { /** Do nothing. Use default port. */ }
         try {
             String[] parts = ip.split("\\.");
             if (parts.length != 4) return false;
