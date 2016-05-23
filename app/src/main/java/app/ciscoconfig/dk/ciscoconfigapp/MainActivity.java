@@ -73,16 +73,16 @@ public class MainActivity extends AppCompatActivity {
             ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
             if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI){
-                BtnGuides.setVisibility(View.VISIBLE);
+                BtnGuides.setEnabled(true);
             }else if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE){
-                BtnGuides.setVisibility(View.VISIBLE);
+                BtnGuides.setEnabled(true);;
             }else if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_ETHERNET){
-                BtnGuides.setVisibility(View.VISIBLE);
+                BtnGuides.setEnabled(true);
             }else{
-                BtnGuides.setVisibility(View.INVISIBLE);
+                BtnGuides.setEnabled(false);
             }
         }else{
-            BtnGuides.setVisibility(View.INVISIBLE);
+            BtnGuides.setEnabled(false);
         }
         }
 
