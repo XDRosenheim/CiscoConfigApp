@@ -1,6 +1,9 @@
 package app.ciscoconfig.dk.ciscoconfigapp;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     Intent intent1;
     private EditText EditIpAddress = null;
     private EditText EditPortNr = null;
-    private Button BtnConnect;
+    private Button BtnConnect, BtnGuides;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +54,38 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-    }
+
+        BtnGuides = (Button)findViewById(R.id.BtnGuides);
+        BtnGuides.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent ToGuide = new Intent(MainActivity.this, GuidesActivity.class);
+                startActivity(ToGuide);
+            }
+        });
+
+
+        if(isConnected())
+        {
+            ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+            if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI){
+                BtnGuides.setVisibility(View.VISIBLE);
+            }else if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE){
+                BtnGuides.setVisibility(View.VISIBLE);
+            }else if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_ETHERNET){
+                BtnGuides.setVisibility(View.VISIBLE);
+            }else{
+                BtnGuides.setVisibility(View.INVISIBLE);
+            }
+        }else{
+            BtnGuides.setVisibility(View.INVISIBLE);
+        }
+        }
+
+
+
 
     private boolean checkIPPort(String ip, String port) {
         try {
@@ -74,4 +108,13 @@ public class MainActivity extends AppCompatActivity {
             return false;
         }
     }
+
+
+    private boolean isConnected(){
+        ConnectivityManager CheckNetwork = (ConnectivityManager)
+                this.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = CheckNetwork.getActiveNetworkInfo();
+        return activeNetworkInfo != null;
+    }
+
 }
