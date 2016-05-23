@@ -81,25 +81,12 @@ public class GuidesActivity extends AppCompatActivity {
 
             });
 
-
-
-
-
-
-
-
-
-
-
-
         //Knap til at komme tilbage til Main Menu.
         BacktoMain = (Button)findViewById(R.id.Btn_Guides_BackToMain);
         BacktoMain.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Intent BackMain = new Intent(GuidesActivity.this, MainActivity.class);
-                startActivity(BackMain);
                 finish();
             }
         });
