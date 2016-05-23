@@ -9,11 +9,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
 import java.net.Socket;
-import java.util.Objects;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText EditIpAddress = null;
     private EditText EditPortNr = null;
     private Button BtnConnect, BtnGuides;
+    private TextView TxtGuides;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,36 +59,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        BtnGuides = (Button) findViewById(R.id.BtnGuides);
+        TxtGuides = (TextView)findViewById(R.id.TxtGuides);
+        BtnGuides = (Button)findViewById(R.id.BtnGuides);
         BtnGuides.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(View v)
+            {
                 Intent ToGuide = new Intent(MainActivity.this, GuidesActivity.class);
                 startActivity(ToGuide);
             }
         });
 
-        if (isConnected()) {
+
+        if(isConnected())
+        {
             ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
+            if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI){
                 BtnGuides.setEnabled(true);
-            } else if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
+                TxtGuides.setVisibility(View.VISIBLE);
+            }else if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE){
                 BtnGuides.setEnabled(true);
-            } else if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_ETHERNET) {
+                TxtGuides.setVisibility(View.VISIBLE);
+            }else if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_ETHERNET){
                 BtnGuides.setEnabled(true);
-            } else {
+                TxtGuides.setVisibility(View.VISIBLE);
+            }else{
                 BtnGuides.setEnabled(false);
             }
-        } else {
+        }else{
             BtnGuides.setEnabled(false);
         }
-    }
+        }
+
+
+
 
     private boolean checkIPPort(String ip, String port) {
         try {
             int i = Integer.parseInt(port);
-            if (i > 65535) return false;
+            if ( i > 65535 ) return false;
         } catch (NumberFormatException nfe) {
             // Do nothing. Use default port.
         }
@@ -105,10 +117,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private boolean isConnected() {
+
+    private boolean isConnected(){
         ConnectivityManager CheckNetwork = (ConnectivityManager)
                 this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = CheckNetwork.getActiveNetworkInfo();
         return activeNetworkInfo != null;
     }
+
 }

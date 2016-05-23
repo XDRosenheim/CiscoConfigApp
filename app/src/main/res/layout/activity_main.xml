@@ -65,6 +65,15 @@
             android:onClick="BrnGuides_OnClick"
             android:text="@string/connect_Guides"/>
 
+        <TextView
+            android:id="@+id/TxtGuides"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Guides Require Internet"
+            android:textSize="20sp"
+            android:visibility="invisible"
+            android:layout_gravity="center"/>
+
 
 
     </LinearLayout>
