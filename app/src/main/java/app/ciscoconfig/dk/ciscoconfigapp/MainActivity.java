@@ -57,42 +57,36 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        BtnGuides = (Button)findViewById(R.id.BtnGuides);
+        BtnGuides = (Button) findViewById(R.id.BtnGuides);
         BtnGuides.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 Intent ToGuide = new Intent(MainActivity.this, GuidesActivity.class);
                 startActivity(ToGuide);
             }
         });
 
-
-        if(isConnected())
-        {
+        if (isConnected()) {
             ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI){
+            if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) {
                 BtnGuides.setEnabled(true);
-            }else if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE){
-                BtnGuides.setEnabled(true);;
-            }else if(activeNetworkInfo.getType() == ConnectivityManager.TYPE_ETHERNET){
+            } else if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE) {
                 BtnGuides.setEnabled(true);
-            }else{
+            } else if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_ETHERNET) {
+                BtnGuides.setEnabled(true);
+            } else {
                 BtnGuides.setEnabled(false);
             }
-        }else{
+        } else {
             BtnGuides.setEnabled(false);
         }
-        }
-
-
-
+    }
 
     private boolean checkIPPort(String ip, String port) {
         try {
             int i = Integer.parseInt(port);
-            if ( i > 65535 ) return false;
+            if (i > 65535) return false;
         } catch (NumberFormatException nfe) {
             // Do nothing. Use default port.
         }
@@ -111,12 +105,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
-    private boolean isConnected(){
+    private boolean isConnected() {
         ConnectivityManager CheckNetwork = (ConnectivityManager)
                 this.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = CheckNetwork.getActiveNetworkInfo();
         return activeNetworkInfo != null;
     }
-
 }
