@@ -10,7 +10,7 @@ import android.widget.ToggleButton;
 
 public class GuidesActivity extends AppCompatActivity {
 
-    Button IsoModel, CiscoModel, RouterConfig, SwitchConfig, ToGoogle,  BacktoMain;
+    Button OsiModel, CiscoModel, RouterConfig, SwitchConfig, ToGoogle,  BacktoMain;
 
 
     @Override
@@ -18,8 +18,8 @@ public class GuidesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guides);
 
-        IsoModel = (Button)findViewById(R.id.Btn_Guides_IsoModel);
-        IsoModel.setOnClickListener(new View.OnClickListener() {
+        OsiModel = (Button)findViewById(R.id.Btn_Guides_OsiModel);
+        OsiModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 

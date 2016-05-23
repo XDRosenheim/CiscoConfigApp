@@ -18,28 +18,25 @@
         android:textSize="40sp" />
 
     <Button
-        android:id="@+id/Btn_Guides_IsoModel"
+        android:id="@+id/Btn_Guides_OsiModel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/guides_iso_model"
-        android:textSize="30sp"
-        android:onClick="Btn_Guides_IsoModel"/>
+        android:text="@string/guides_osi_model"
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/Btn_Guides_CiscoModels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/guides_cisco_models"
-        android:textSize="30sp"
-        android:onClick="Btn_Guides_CiscoModels"/>
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/Btn_Guides_RouterConfig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/guides_router_config"
-        android:textSize="30sp"
-        android:onClick="Btn_Guides_RouterConfig"/>
+        android:textSize="30sp" />
 
     <Button
         android:id="@+id/Btn_Guides_SwitchConfig"
@@ -47,7 +44,7 @@
         android:layout_height="wrap_content"
         android:text="@string/guides_Switch_Config"
         android:textSize="30sp"
-        android:onClick="Btn_Guides_SwitchConfig"/>
+        />
 
 
     <Button
@@ -55,8 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/guides_vejen_til_google"
-        android:textSize="30sp"
-        android:onClick="Btn_Guides_Google"/>
+        android:textSize="30sp" />
 
 
     <LinearLayout
@@ -72,8 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:text="@string/guides_gobacktostart"
-            android:textSize="30sp"
-            android:onClick="Btn_Guides_BackToMain"/>
+            android:textSize="30sp" />
 
 
     </LinearLayout>
