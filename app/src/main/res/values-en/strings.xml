@@ -4,7 +4,7 @@
     <string name="connect_btn_connect">Connect</string>
     <string name="connect_btn_telnet">Telnet</string>
     <string name="connect_ipAddress">IP Address</string>
-    <string name="connect_portNumber">Port Number</string>
+    <string name="connect_portNumber">Port Number (23 if left empty)</string>
     <string name="connect_noEntry">IP address is empty or invalid.</string>
     <string name="connect_Connected">Connected</string>
     <string name="connect_connecting">Connecting…</string>

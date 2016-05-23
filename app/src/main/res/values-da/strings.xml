@@ -6,7 +6,7 @@
     <string name="connect_Connected">Forbundet</string>
     <string name="connect_noEntry">IP adresse er tom eller ikke gyldig.</string>
     <string name="connect_ipAddress">IP Adresse</string>
-    <string name="connect_portNumber">Port Nummer</string>
+    <string name="connect_portNumber">Port Nummer (23 hvis feltet er tomt)</string>
     <string name="connect_connecting">Forbinder…</string>
     <string name="guides_Guides">Vejledninger</string>
     <string name="guides_Switch_Config">Switch konfigurering</string>

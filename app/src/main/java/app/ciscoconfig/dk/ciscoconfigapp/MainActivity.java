@@ -10,6 +10,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         String IpAddress = EditIpAddress.getText().toString();
                         String PortNr = EditPortNr.getText().toString();
+                        if (PortNr.equals("")) PortNr = "23";
                         Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_LONG).show();
                         //Opretter en socket som bruges som Telnet til at connecte til Router.
                         Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
