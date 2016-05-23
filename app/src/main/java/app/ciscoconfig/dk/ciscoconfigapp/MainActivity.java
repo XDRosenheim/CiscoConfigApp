@@ -108,8 +108,4 @@ public class MainActivity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = CheckNetwork.getActiveNetworkInfo();
         return activeNetworkInfo != null;
     }
-
-    public void BtnGuides_OnClick(View view) {
-
-    }
 }
