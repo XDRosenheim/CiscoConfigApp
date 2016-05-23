@@ -5,7 +5,15 @@
     <string name="connect_btn_telnet">Telnet</string>
     <string name="connect_ipAddress">IP Address</string>
     <string name="connect_portNumber">Port Number</string>
-    <string name="connect_noEntry">IP address and/or port number is empty or invalid.</string>
+    <string name="connect_noEntry">IP address is empty or invalid.</string>
     <string name="connect_Connected">Connected</string>
-    <string name="connect_connecting">Connecting...</string>
+    <string name="connect_connecting">Connecting…</string>
+    <string name="guides_Guides">Guides</string>
+    <string name="guides_Switch_Config">Switch Config</string>
+    <string name="guides_cisco_models">Cisco Models</string>
+    <string name="guides_gobacktostart">Back</string>
+    <string name="guides_iso_model">ISO-Model</string>
+    <string name="guides_router_config">Router Config</string>
+    <string name="guides_vejen_til_google">Vejen til Google</string>
+    <string name="connect_Guides">Guides</string>
 </resources>

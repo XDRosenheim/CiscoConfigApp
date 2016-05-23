@@ -29,7 +29,7 @@ public class ConfigureCommandBlocks {
     public ArrayList setMOTD(String msg){
         array.clear();
         array.add("conf t");
-        array.add("banner motd"+ msg);
+        array.add("banner motd "+ msg);
         array.add("end");
         return array;
     }
@@ -42,5 +42,4 @@ public class ConfigureCommandBlocks {
         array.add("end");
         return array;
     }
-
 }

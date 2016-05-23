@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Cisco Configuration Tool</string>
     <string name="app_title">Kage</string>
     <string name="connect_btn_connect">Forbind</string>
     <string name="connect_btn_telnet">Telnet</string>
     <string name="connect_Connected">Forbundet</string>
-    <string name="connect_noEntry">IP adresse og/eller port nummer er tom eller ikke gyldig.</string>
+    <string name="connect_noEntry">IP adresse er tom eller ikke gyldig.</string>
     <string name="connect_ipAddress">IP Adresse</string>
     <string name="connect_portNumber">Port Nummer</string>
-    <string name="connect_connecting">Forbinder...</string>
+    <string name="connect_connecting">Forbinder…</string>
+    <string name="guides_Guides">Vejledninger</string>
+    <string name="guides_Switch_Config">Switch konfigurering</string>
+    <string name="guides_cisco_models">Cisco modeller</string>
+    <string name="guides_vejen_til_google">Gå til Google</string>
+    <string name="guides_router_config">Router konfigurering</string>
+    <string name="guides_iso_model">OSI-Modellen</string>
+    <string name="guides_gobacktostart">Tilbage</string>
+    <string name="connect_Guides">Vejledninger</string>
 </resources>

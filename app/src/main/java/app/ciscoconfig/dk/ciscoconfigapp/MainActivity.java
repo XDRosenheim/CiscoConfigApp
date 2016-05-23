@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
         BtnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (!checkIPPort(EditIpAddress.getText().toString(), EditPortNr.getText().toString())) {
+                if (checkIPPort(EditIpAddress.getText().toString(), EditPortNr.getText().toString())) {
                     try {
                         String IpAddress = EditIpAddress.getText().toString();
                         String PortNr = EditPortNr.getText().toString();
