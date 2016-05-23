@@ -51,8 +51,6 @@
             android:id="@+id/BtnConnecting"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-
-            android:onClick="BtnConnection_OnClick"
             android:text="@string/connect_btn_connect"
             android:textSize="30sp" />
 
@@ -61,7 +59,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:onClick="BtnGuides_OnClick"
             android:text="@string/connect_Guides"
             android:textSize="30sp" />
 
