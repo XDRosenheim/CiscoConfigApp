@@ -7,7 +7,7 @@
     <string name="connect_portNumber">Port Number (23 if left empty)</string>
     <string name="connect_noEntry">IP address is empty or invalid.</string>
     <string name="connect_Connected">Connected</string>
-    <string name="connect_connecting">Connecting...</string>
+    <string name="connect_connecting">Connecting…</string>
     <string name="connect_Guides">Guides</string>
     <string name="guides_Guides">Guides</string>
     <string name="guides_gobacktostart">Go Back To Start</string>

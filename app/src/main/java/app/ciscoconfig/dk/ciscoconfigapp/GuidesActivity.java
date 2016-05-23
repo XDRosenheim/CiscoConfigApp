@@ -23,6 +23,10 @@ public class GuidesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Uri OsiModelUri = Uri.parse("http://www.cisco.com/cpress/cc/td/cpress/fund/ith/ith01gb.htm#xtocid166844");
+                Intent intentOsiModel = new Intent(Intent.ACTION_VIEW, OsiModelUri);
+                startActivity(intentOsiModel);
+
             }
         });
 
@@ -30,6 +34,10 @@ public class GuidesActivity extends AppCompatActivity {
         CiscoModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Uri CiscoModelUri = Uri.parse("http://www.Google.Com");
+                Intent intentCisco = new Intent(Intent.ACTION_VIEW, CiscoModelUri);
+                startActivity(intentCisco);
 
             }
         });
@@ -39,6 +47,10 @@ public class GuidesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Uri RouterConfUri = Uri.parse("http://www.Google.Com");
+                Intent intenRouter = new Intent(Intent.ACTION_VIEW, RouterConfUri);
+                startActivity(intenRouter);
+
             }
         });
 
@@ -47,8 +59,13 @@ public class GuidesActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                Uri SwitchConfUri = Uri.parse("http://www.Google.Com");
+                Intent intentSwitch = new Intent(Intent.ACTION_VIEW, SwitchConfUri);
+                startActivity(intentSwitch);
+
             }
         });
+
 
 
 
