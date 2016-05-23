@@ -16,4 +16,5 @@
     <string name="guides_iso_model">OSI-Modellen</string>
     <string name="guides_gobacktostart">Tilbage</string>
     <string name="connect_Guides">Vejledninger</string>
+    <string name="guide_txt_req_internet">Guides Require Internet</string>
 </resources>

@@ -21,9 +21,9 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_gravity="start"
+        android:layout_weight="0.79"
         android:orientation="vertical"
-        android:padding="16dp"
-        android:layout_weight="0.79">
+        android:padding="16dp">
 
         <EditText
             android:id="@+id/EditIPAdresse"
@@ -36,9 +36,9 @@
             android:id="@+id/EditPortNr"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="5"
             android:hint="@string/connect_portNumber"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="5" />
     </LinearLayout>
 
     <LinearLayout
@@ -61,21 +61,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:textSize="30sp"
-            android:onClick="BrnGuides_OnClick"
-            android:text="@string/connect_Guides"/>
+            android:onClick="BtnGuides_OnClick"
+            android:text="@string/connect_Guides"
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/TxtGuides"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Guides Require Internet"
-            android:textSize="20sp"
+            android:layout_gravity="center"
             android:visibility="invisible"
-            android:layout_gravity="center"/>
-
-
-
+            android:text="@string/guide_txt_req_internet"
+            android:textSize="20sp" />
     </LinearLayout>
 
 </LinearLayout>
