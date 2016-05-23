@@ -16,4 +16,5 @@
     <string name="guides_router_config">Router Config</string>
     <string name="guides_Switch_Config">Switch Config</string>
     <string name="guides_vejen_til_google">Vejen til Google</string>
+    <string name="guides_txt_req_internet">Guides Require Internet</string>
 </resources>
