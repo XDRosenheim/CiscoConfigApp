@@ -37,10 +37,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-                cmd.setHostName("GET MESSAGE FROM USER HERE!");
+                cmd.setHostName("GET MESSAGE FROM USER SOMEHOW");
                 for (String sendMe : cmd.array) {
-                    // TODO: Send command to device.
-                    // Wait for 100 ms. Just to make sure.
+                    Out.println(sendMe); // Send commands to device.
                 }
             }
         });
@@ -50,10 +49,9 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-                cmd.setMOTD("GET MESSAGE FROM USER HERE!");
+                cmd.setMOTD("GET MESSAGE FROM USER SOMEHOW");
                 for (String sendMe : cmd.array) {
-                    // TODO: Send command to device.
-                    // Wait for 100 ms. Just to make sure.
+                    Out.println(sendMe); // Send commands to device.
                 }
             }
         });
