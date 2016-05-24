@@ -64,4 +64,15 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void CloseAll()
+    {//Lukker alle forbindelserne ned igen.
+        try {
+            In.close();
+            Out.close();
+            Sock.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
