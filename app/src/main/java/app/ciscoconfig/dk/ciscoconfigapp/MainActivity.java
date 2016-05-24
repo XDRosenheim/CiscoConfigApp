@@ -6,7 +6,6 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.renderscript.Script;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -25,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText EditIpAddress = null;
     private EditText EditPortNr = null;
     private Button BtnConnect, BtnGuides;
-    private TextView TxtGuides;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,34 +66,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        TxtGuides = (TextView) findViewById(R.id.TxtGuides);
+        TextView txtGuides = (TextView) findViewById(R.id.TxtGuides);
         BtnGuides = (Button) findViewById(R.id.BtnGuides);
         BtnGuides.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                /**
+                 * Opens a the guide activity.
+                 */
                 ToGuide = new Intent(MainActivity.this, GuidesActivity.class);
                 startActivity(ToGuide);
             }
         });
 
+
         if (isConnected()) {
             ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-            if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI) BtnGuides.setEnabled(true);
-            else if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE) BtnGuides.setEnabled(true);
-            else if (activeNetworkInfo.getType() != ConnectivityManager.TYPE_ETHERNET) BtnGuides.setEnabled(false);
+            if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_WIFI)
+                BtnGuides.setEnabled(true);
+            else if (activeNetworkInfo.getType() == ConnectivityManager.TYPE_MOBILE)
+                BtnGuides.setEnabled(true);
+            else if (activeNetworkInfo.getType() != ConnectivityManager.TYPE_ETHERNET)
+                BtnGuides.setEnabled(false);
             else BtnGuides.setEnabled(true);
         } else {
             BtnGuides.setEnabled(false);
-            TxtGuides.setVisibility(View.VISIBLE);
+            txtGuides.setVisibility(View.VISIBLE);
         }
     }
 
+    /**
+     * Returns:
+     * true - if IP and port are valid.
+     * false - if IP is not valid or port is too big or too small.
+     */
     private boolean checkIPPort(String ip, String port) {
         try {
             int i = Integer.parseInt(port);
             if (i > 65535) return false;
-        } catch (NumberFormatException nfe) { /** Do nothing. Use default port. */ }
+        } catch (NumberFormatException nfe) { /** Do nothing. Use default port. */}
         try {
             String[] parts = ip.split("\\.");
             if (parts.length != 4) return false;
@@ -109,6 +119,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check users network connection. (Not internet, just network)
+     * Returns:
+     * true - if user has a network connection (WiFi/Mobile/Ethernet)
+     * false - if user doesnøt have a network connection
+     */
     private boolean isConnected() {
         ConnectivityManager CheckNetwork = (ConnectivityManager)
                 this.getSystemService(Context.CONNECTIVITY_SERVICE);

@@ -1,62 +1,58 @@
 package app.ciscoconfig.dk.ciscoconfigapp;
 
-import java.sql.Struct;
 import java.util.ArrayList;
 
 /**
- * Created by torso on 20-05-2016.
- *
+ * Created by torso
+ * Creation date 20-05-2016
  */
 public class ConfigureCommandBlocks {
-
     public ArrayList<String> array;
 
-
-
-
     // configure ospf protocol // not 100% sure on some of the theory with network vs area
-    public ArrayList configureOSPF(String processID, String network,String netmask, String Sinterface, String Speed){
+    public ArrayList configureOSPF(String processID, String network, String netmask, String Sinterface, String Speed) {
         array.clear();
         array.add("conf t");
-        array.add("Router ospf "+processID);
-        array.add("network "+network+" "+netmask+" area "+network);
+        array.add("Router ospf " + processID);
+        array.add("network " + network + " " + netmask + " area " + network);
         array.add("Default-information originate");
         array.add("Auto-cost reference-bandwidth 10000");
         array.add("end");
         array.add("conf t");
-        array.add("int serial "+Sinterface);
+        array.add("int serial " + Sinterface);
         array.add("no shut");
-        array.add("Bandwidth "+Speed);
+        array.add("Bandwidth " + Speed);
 
+        array.add("end");
         return array;
     }
 
     // configure EIGRP protocol // not 100% sure on some of the theory with network vs ipaddress
-    public ArrayList configureEIGRP(String VIName, String network, String Sinterface, String Speed, String ipaddress,String netmask){
+    public ArrayList configureEIGRP(String VIName, String network, String Sinterface, String Speed, String ipaddress, String netmask) {
         array.clear();
         array.add("conf t");
-        array.add("router eigrp "+VIName);
+        array.add("router eigrp " + VIName);
         array.add("No auto-summary");
-        array.add("network "+network);
+        array.add("network " + network);
         array.add("Redistribute static");
         array.add("end");
         array.add("conf t");
-        array.add("int serial "+ Sinterface);
-        array.add("bandwidth "+ Speed);
-        array.add("ip summary-adress eigrp "+VIName+" "+ipaddress+" "+netmask);
+        array.add("int serial " + Sinterface);
+        array.add("bandwidth " + Speed);
+        array.add("ip summary-adress eigrp " + VIName + " " + ipaddress + " " + netmask);
         array.add("end");
         return array;
     }
 
     //configure Rip Protocol
-    public ArrayList configureRIPv2(String SerialInterface, String network){
+    public ArrayList configureRIPv2(String SerialInterface, String network) {
         array.clear();
         array.add("conf t");
         array.add("router rip");
         array.add("Version 2");
         array.add("No Auto-Summary");
-        array.add("network "+network);
-        array.add("passive interface "+ SerialInterface);
+        array.add("network " + network);
+        array.add("passive interface " + SerialInterface);
         array.add("default-information originate");
         array.add("clear ip route");
         array.add("end");
@@ -64,59 +60,66 @@ public class ConfigureCommandBlocks {
     }
 
     //Configure Serieal interface.
-    public ArrayList setSerialInterface(String Clock ,String Interface,String Description, String ip, String subnetmask){
+    public ArrayList setSerialInterface(String Clock, String Interface, String Description, String ip, String subnetmask) {
         array.clear();
         array.add("conf t");
-        array.add("int serial "+Interface);
-        if (Description.toString() == ""){}
-        else{array.add("description "+Description);}
-        array.add("ip address "+ip+" "+subnetmask);
+        array.add("int serial " + Interface);
+        if (!Description.equals("")) {
+            array.add("description " + Description);
+        }
+        array.add("ip address " + ip + " " + subnetmask);
         // Only on DCE side
-        if (Clock.toString() == ""){}
-        else{array.add("clock rate "+Clock);}
+        if (!Clock.equals("")) {
+            array.add("clock rate " + Clock);
+        }
         array.add("no shut");
         array.add("end");
         return array;
     }
 
     //no ip domain-lookup
-    public ArrayList noIpDomainLookUp(){
+    public ArrayList noIpDomainLookUp() {
         array.clear();
         array.add("conf t");
         array.add("No ip domain-lookup");
         array.add("end");
         return array;
     }
+
     // sethostname
-    public ArrayList setHostName (String name){
+    public ArrayList setHostName(String name) {
         array.clear();
         array.add("conf t");
-        array.add("hostname "+ name);
+        array.add("hostname " + name);
         array.add("end");
         return array;
     }
+
     // Set ip on FastEthernet interface                     x/y
-    public ArrayList setIpFeastEthernetInterface(String Interface,String Description, String ip, String subnetmask){
+    public ArrayList setIpFeastEthernetInterface(String Interface, String Description, String ip, String subnetmask) {
         array.clear();
         array.add("conf t");
-        array.add("int fa "+Interface);
-        if (Description.toString() == ""){}
-        else{array.add("description "+Description);}
-        array.add("ip address "+ip+" "+subnetmask);
+        array.add("int fa " + Interface);
+        if (!Description.equals("")) {
+            array.add("description " + Description);
+        }
+        array.add("ip address " + ip + " " + subnetmask);
         array.add("no shut");
         array.add("end");
         return array;
     }
+
     // Set Messages Of the Day Banner.
-    public ArrayList setMOTD(String msg){
+    public ArrayList setMOTD(String msg) {
         array.clear();
         array.add("conf t");
-        array.add("banner motd "+ msg);
+        array.add("banner motd " + msg);
         array.add("end");
         return array;
     }
+
     // Save the Running configuration to the startup.
-    public ArrayList copyRunToStart(){
+    public ArrayList copyRunToStart() {
         array.clear();
         array.add("copy run start");
         array.add(""); // confirm copy

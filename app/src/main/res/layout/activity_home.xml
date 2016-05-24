@@ -19,7 +19,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button2"
+        android:id="@+id/btnSetHostname"
         android:layout_gravity="center_horizontal"
         android:text="Set hostname" />
 
@@ -27,20 +27,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Set banner"
-        android:id="@+id/button"
+        android:id="@+id/btnSetMotd"
         android:layout_gravity="center_horizontal" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button3"
+        android:id="@+id/btnSaveConfig"
         android:layout_gravity="center_horizontal"
         android:text="Copy running config to startup config" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/button4"
+        android:id="@+id/btnBack"
         android:layout_gravity="center_horizontal"
         android:text="Back" />
 

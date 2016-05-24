@@ -70,8 +70,7 @@ public class GuidesActivity extends AppCompatActivity {
         BacktoMain = (Button) findViewById(R.id.Btn_Guides_BackToMain);
         BacktoMain.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 finish();
             }
         });
