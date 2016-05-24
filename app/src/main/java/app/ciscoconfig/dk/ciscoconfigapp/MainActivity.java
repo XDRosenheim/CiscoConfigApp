@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                         //Opretter en socket som bruges som Telnet til at connecte til Router.
                         Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
                         Sock.setKeepAlive(true);
+                        Singleton.setSocket(Sock);
                         if (Sock.isConnected()) {
                             ToConf = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(ToConf);
