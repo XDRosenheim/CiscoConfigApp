@@ -11,12 +11,55 @@ public class ConfigureCommandBlocks {
 
     public ArrayList<String> array;
 
-    //configure Rip Protocol // not done yet
-    public ArrayList configureRIPv2(String SerialInterface){
+
+
+
+    // configure ospf protocol // not 100% sure on some of the theory with network vs area
+    public ArrayList configureOSPF(String processID, String network,String netmask, String Sinterface, String Speed){
         array.clear();
+        array.add("conf t");
+        array.add("Router ospf "+processID);
+        array.add("network "+network+" "+netmask+" area "+network);
+        array.add("Default-information originate");
+        array.add("Auto-cost reference-bandwidth 10000");
+        array.add("end");
+        array.add("conf t");
+        array.add("int serial "+Sinterface);
+        array.add("no shut");
+        array.add("Bandwidth "+Speed);
+
+        return array;
+    }
+
+    // configure EIGRP protocol // not 100% sure on some of the theory with network vs ipaddress
+    public ArrayList configureEIGRP(String VIName, String network, String Sinterface, String Speed, String ipaddress,String netmask){
+        array.clear();
+        array.add("conf t");
+        array.add("router eigrp "+VIName);
+        array.add("No auto-summary");
+        array.add("network "+network);
+        array.add("Redistribute static");
+        array.add("end");
+        array.add("conf t");
+        array.add("int serial "+ Sinterface);
+        array.add("bandwidth "+ Speed);
+        array.add("ip summary-adress eigrp "+VIName+" "+ipaddress+" "+netmask);
+        array.add("end");
+        return array;
+    }
+
+    //configure Rip Protocol
+    public ArrayList configureRIPv2(String SerialInterface, String network){
+        array.clear();
+        array.add("conf t");
+        array.add("router rip");
         array.add("Version 2");
         array.add("No Auto-Summary");
+        array.add("network "+network);
         array.add("passive interface "+ SerialInterface);
+        array.add("default-information originate");
+        array.add("clear ip route");
+        array.add("end");
         return array;
     }
 
@@ -28,6 +71,7 @@ public class ConfigureCommandBlocks {
         if (Description.toString() == ""){}
         else{array.add("description "+Description);}
         array.add("ip address "+ip+" "+subnetmask);
+        // Only on DCE side
         if (Clock.toString() == ""){}
         else{array.add("clock rate "+Clock);}
         array.add("no shut");
@@ -38,6 +82,7 @@ public class ConfigureCommandBlocks {
     //no ip domain-lookup
     public ArrayList noIpDomainLookUp(){
         array.clear();
+        array.add("conf t");
         array.add("No ip domain-lookup");
         array.add("end");
         return array;
