@@ -17,4 +17,5 @@
     <string name="guides_vejen_til_google">Vejen til Google</string>
     <string name="connect_Guides">Guides</string>
     <string name="guide_txt_req_internet">Guides Require Internet</string>
+    <string name="all_back">Back</string>
 </resources>

@@ -1,6 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">Cisco Configuration Tool</string>
     <string name="app_title">Cake</string>
+    <string name="all_back">Back</string>
+    <string name="all_google">Google</string>
     <string name="connect_btn_telnet">Telnet</string>
     <string name="connect_ipAddress">IP Address</string>
     <string name="connect_btn_connect">Connect</string>
@@ -10,11 +13,9 @@
     <string name="connect_connecting">Connecting…</string>
     <string name="connect_Guides">Guides</string>
     <string name="guides_Guides">Guides</string>
-    <string name="guides_gobacktostart">Go Back To Start</string>
     <string name="guides_osi_model">OSI-Model</string>
     <string name="guides_cisco_models">Cisco Models</string>
     <string name="guides_router_config">Router Config</string>
     <string name="guides_Switch_Config">Switch Config</string>
-    <string name="guides_vejen_til_google">Vejen til Google</string>
     <string name="guides_txt_req_internet">Guides Require Internet</string>
 </resources>
