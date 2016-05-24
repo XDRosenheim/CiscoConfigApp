@@ -37,25 +37,27 @@ public class MainActivity extends AppCompatActivity {
         BtnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (checkIPPort(EditIpAddress.getText().toString(), EditPortNr.getText().toString())) {
+                if (checkIPPort(EditIpAddress.getText().toString(), EditPortNr.getText().toString()))
                     try {
                         String IpAddress = EditIpAddress.getText().toString();
                         String PortNr = EditPortNr.getText().toString();
                         if (PortNr.equals("")) PortNr = "23";
-                        Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_SHORT).show();
                         //Opretter en socket som bruges som Telnet til at connecte til Router.
                         Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
                         Sock.setKeepAlive(true);
-                        Sock.connect(Sock.getRemoteSocketAddress());
+                        Sock.connect(Sock.getRemoteSocketAddress(), 100);
                         if (Sock.isConnected()) {
                             ToConf = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(ToConf);
                             Toast.makeText(getApplicationContext(), R.string.connect_Connected, Toast.LENGTH_LONG).show();
-                        }
+                        } else
+                            Toast.makeText(getApplicationContext(), "Could not connect", Toast.LENGTH_LONG).show();
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        System.out.println(e.getMessage());
+                        Toast.makeText(getApplicationContext(), "Error on connection: " + e.hashCode(), Toast.LENGTH_LONG).show();
                     }
-                } else {
+                else {
                     Toast.makeText(getApplicationContext(), R.string.connect_noEntry, Toast.LENGTH_SHORT).show();
                 }
             }
