@@ -15,7 +15,6 @@ import android.widget.Toast;
 import java.io.IOException;
 import java.net.Socket;
 
-
 public class MainActivity extends AppCompatActivity {
 
     //Variabler på Main Activity
@@ -46,6 +45,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_LONG).show();
                         //Opretter en socket som bruges som Telnet til at connecte til Router.
                         Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
+                        Sock.setKeepAlive(true);
+                        Sock.connect(Sock.getRemoteSocketAddress());
                         if (Sock.isConnected()) {
                             ToConf = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(ToConf);
