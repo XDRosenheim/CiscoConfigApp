@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name" translatable="false">Cisco Configuration Tool</string>
+    <string name="app_name">Cisco Configuration Tool</string>
     <string name="app_title">Cake</string>
     <string name="all_back">Back</string>
     <string name="all_google">Google</string>
@@ -18,4 +18,5 @@
     <string name="guides_router_config">Router Config</string>
     <string name="guides_Switch_Config">Switch Config</string>
     <string name="guides_txt_req_internet">Guides Require Internet</string>
+    <string name="home_configs">Configs</string>
 </resources>
