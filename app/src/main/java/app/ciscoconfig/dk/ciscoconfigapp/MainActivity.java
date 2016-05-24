@@ -13,6 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
+import java.net.InetAddress;
 import java.net.Socket;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText EditPortNr = null;
     private Button BtnConnect, BtnGuides;
     private TextView TxtGuides;
+    Socket Sock;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,15 +43,20 @@ public class MainActivity extends AppCompatActivity {
                     try {
                         String IpAddress = EditIpAddress.getText().toString();
                         String PortNr = EditPortNr.getText().toString();
+
                         if (PortNr.equals("")) PortNr = "23";
                         Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_LONG).show();
+                        int PortNum = Integer.parseInt(PortNr);
                         //Opretter en socket som bruges som Telnet til at connecte til Router.
-                        Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
+                        Sock = new Socket(IpAddress, PortNum);
+                        Singleton.setSocket(Sock);
                         Sock.setKeepAlive(true);
                         Sock.connect(Sock.getRemoteSocketAddress());
+
                         if (Sock.isConnected()) {
                             ToConf = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(ToConf);
+
                             Toast.makeText(getApplicationContext(), R.string.connect_Connected, Toast.LENGTH_LONG).show();
                         }
                     } catch (IOException e) {
@@ -82,7 +89,12 @@ public class MainActivity extends AppCompatActivity {
             BtnGuides.setEnabled(false);
             TxtGuides.setVisibility(View.VISIBLE);
         }
+
+
+
     }
+
+
 
     private boolean checkIPPort(String ip, String port) {
         try {
@@ -108,4 +120,7 @@ public class MainActivity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = CheckNetwork.getActiveNetworkInfo();
         return activeNetworkInfo != null;
     }
+
+
+
 }
