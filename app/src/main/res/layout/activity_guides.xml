@@ -22,28 +22,28 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/guides_osi_model"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/Btn_Guides_CiscoModels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/guides_cisco_models"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/Btn_Guides_RouterConfig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/guides_router_config"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
     <Button
         android:id="@+id/Btn_Guides_SwitchConfig"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/guides_Switch_Config"
-        android:textSize="30sp"
+        android:textSize="25sp"
         />
 
 
@@ -52,7 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/guides_vejen_til_google"
-        android:textSize="30sp" />
+        android:textSize="25sp" />
 
 
     <LinearLayout
