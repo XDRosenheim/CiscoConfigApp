@@ -58,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "Could not connect", Toast.LENGTH_LONG).show();
                     } catch (IOException e) {
                         System.out.println(e.getMessage());
-                        Toast.makeText(getApplicationContext(), "Error on connection: " + e.hashCode(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), "Error: " + e.getLocalizedMessage(), Toast.LENGTH_LONG).show();
                     }
                 else {
                     Toast.makeText(getApplicationContext(), R.string.connect_noEntry, Toast.LENGTH_SHORT).show();
