@@ -1,7 +1,7 @@
 package app.ciscoconfig.dk.ciscoconfigapp;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by torso
@@ -9,21 +9,25 @@ import java.util.ArrayList;
  */
 public class CiscoDevices {
 
-    public Array CiscoDevice;
-    public ArrayList<String> DeviceModel;
-    public ArrayList<String> FastEthernetInterfaces;
-    public ArrayList<String> GigabitInterfaces;
-    public ArrayList<String> SerialInterfaces;
+    List<String[]> DeviceInfo;
+    public String[] DeviceModel;
+    public String[] FastEthernetInterfaces;
+    public String[] GigabitInterfaces;
+    public String[] SerialInterfaces;
 
-    public Array Router1900(){
-        DeviceModel.add("Router 1900");
+    public ArrayList Router1900(){
+        DeviceModel = new String[]{"Router 1900"};
         for (int i=0;i<1;i++) {
-            GigabitInterfaces.add("Gigabitethernet 0/"+i);
+            GigabitInterfaces = new String[]{"GigabitEthernet 0/"+i};
         }
         for (int i=0;i<1;i++) {
-            SerialInterfaces.add("Gigabitethernet 0/0/"+i);
+            SerialInterfaces = new String[]{"Serial 0/0/"+i};
         }
-        return CiscoDevice[DeviceModel][GigabitInterfaces][SerialInterfaces];
+
+        DeviceInfo.add(DeviceModel);
+        DeviceInfo.add(GigabitInterfaces);
+        DeviceInfo.add(SerialInterfaces);
+        return (ArrayList) DeviceInfo;
     }
 
 }
