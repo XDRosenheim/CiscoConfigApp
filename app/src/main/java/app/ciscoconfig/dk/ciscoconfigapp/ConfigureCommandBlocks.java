@@ -9,8 +9,40 @@ import java.util.ArrayList;
 public class ConfigureCommandBlocks {
     public ArrayList<String> array;
 
+    // Swtich trunking
+    public ArrayList SwitchTrunking(String inferfaceRange, String Vlan){
+        array.clear();
+        array.add("conf t");
+        array.add("int range fa "+inferfaceRange);
+        array.add("shut");
+        array.add("switchport mode trunk");
+        array.add("switchport trunknative vlan "+ Vlan);
+        return array;
+    }
+
+
+    // Set static route
+    public ArrayList setStaticRoute(String Network,String Netmask, String NextHop){
+        array.clear();
+        array.add("conf t");
+        array.add("ip route "+ Network +" "+Netmask +" "+NextHop);
+        array.add("end");
+        return array;
+    }
+
+    // set OSPF link priority
+    public ArrayList OSPFLinkPRiority(String EthernetInterface, String priorityValue){
+        array.clear();
+        array.add("conf t");
+        array.add("int "+EthernetInterface);
+        array.add("ip ospf priority "+priorityValue);
+        array.add("no shut");
+        array.add("end");
+        return array;
+    }
+
     // configure ospf protocol // not 100% sure on some of the theory with network vs area
-    public ArrayList configureOSPF(String processID, String network, String netmask, String Sinterface, String Speed) {
+    public ArrayList configureOSPF(String processID, String network, String netmask, String SerialInterface, String Speed) {
         array.clear();
         array.add("conf t");
         array.add("Router ospf " + processID);
@@ -19,7 +51,7 @@ public class ConfigureCommandBlocks {
         array.add("Auto-cost reference-bandwidth 10000");
         array.add("end");
         array.add("conf t");
-        array.add("int serial " + Sinterface);
+        array.add("int " + SerialInterface);
         array.add("no shut");
         array.add("Bandwidth " + Speed);
 
@@ -28,7 +60,7 @@ public class ConfigureCommandBlocks {
     }
 
     // configure EIGRP protocol // not 100% sure on some of the theory with network vs ipaddress
-    public ArrayList configureEIGRP(String VIName, String network, String Sinterface, String Speed, String ipaddress, String netmask) {
+    public ArrayList configureEIGRP(String VIName, String network, String SerialInterface, String Speed, String ipaddress, String netmask) {
         array.clear();
         array.add("conf t");
         array.add("router eigrp " + VIName);
@@ -37,7 +69,7 @@ public class ConfigureCommandBlocks {
         array.add("Redistribute static");
         array.add("end");
         array.add("conf t");
-        array.add("int serial " + Sinterface);
+        array.add("int " + SerialInterface);
         array.add("bandwidth " + Speed);
         array.add("ip summary-adress eigrp " + VIName + " " + ipaddress + " " + netmask);
         array.add("end");
@@ -60,10 +92,10 @@ public class ConfigureCommandBlocks {
     }
 
     //Configure Serieal interface.
-    public ArrayList setSerialInterface(String Clock, String Interface, String Description, String ip, String subnetmask) {
+    public ArrayList setSerialInterface(String Clock, String SerialInterface, String Description, String ip, String subnetmask) {
         array.clear();
         array.add("conf t");
-        array.add("int serial " + Interface);
+        array.add("int " + SerialInterface);
         if (!Description.equals("")) {
             array.add("description " + Description);
         }
@@ -95,11 +127,11 @@ public class ConfigureCommandBlocks {
         return array;
     }
 
-    // Set ip on FastEthernet interface                     x/y
+    // Set ip on FastEthernet interface          fa/fe/Serial+ x/y
     public ArrayList setIpFeastEthernetInterface(String Interface, String Description, String ip, String subnetmask) {
         array.clear();
         array.add("conf t");
-        array.add("int fa " + Interface);
+        array.add("int " + Interface);
         if (!Description.equals("")) {
             array.add("description " + Description);
         }
