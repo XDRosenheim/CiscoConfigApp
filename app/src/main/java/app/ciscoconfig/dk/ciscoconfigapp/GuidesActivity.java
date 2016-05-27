@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class GuidesActivity extends AppCompatActivity {
 
-    Button OsiModel, CiscoModel, RouterConfig, SwitchConfig, ToGoogle, BacktoMain;
+    Button OsiModel, RouterModel,Switchmodels, RouterConfig, SwitchConfig, ToGoogle, BacktoMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,21 +26,31 @@ public class GuidesActivity extends AppCompatActivity {
             }
         });
 
-        CiscoModel = (Button) findViewById(R.id.Btn_Guides_CiscoModels);
-        CiscoModel.setOnClickListener(new View.OnClickListener() {
+        RouterModel = (Button) findViewById(R.id.Btn_Guides_RouterModels);
+        RouterModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri CiscoModelUri = Uri.parse("http://www.Google.Com");
+                Uri CiscoModelUri = Uri.parse("http://www.cisco.com/c/en/us/products/routers/product-listing.html");
                 Intent intentCisco = new Intent(Intent.ACTION_VIEW, CiscoModelUri);
                 startActivity(intentCisco);
             }
         });
 
-        RouterConfig = (Button) findViewById(R.id.Btn_Guides_RouterConfig);
+        Switchmodels = (Button) findViewById(R.id.Btn_Guides_SwitchModels);
+        Switchmodels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri RouterConfUri = Uri.parse("http://www.cisco.com/c/en/us/products/switches/product-listing.html");
+                Intent intenRouter = new Intent(Intent.ACTION_VIEW, RouterConfUri);
+                startActivity(intenRouter);
+            }
+        });
+
+        RouterConfig = (Button)findViewById(R.id.Btn_Guides_RouterConfig);
         RouterConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri RouterConfUri = Uri.parse("http://www.Google.Com");
+                Uri RouterConfUri = Uri.parse("http://www.cisco.com/c/en/us/td/docs/routers/access/1900/software/configuration/guide/Software_Configuration.html");
                 Intent intenRouter = new Intent(Intent.ACTION_VIEW, RouterConfUri);
                 startActivity(intenRouter);
             }
@@ -50,7 +60,7 @@ public class GuidesActivity extends AppCompatActivity {
         SwitchConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri SwitchConfUri = Uri.parse("http://www.Google.Com");
+                Uri SwitchConfUri = Uri.parse("http://computernetworkingnotes.com/ccna-study-guide/basic-switch-configuration-guide-with-examples.html");
                 Intent intentSwitch = new Intent(Intent.ACTION_VIEW, SwitchConfUri);
                 startActivity(intentSwitch);
             }
