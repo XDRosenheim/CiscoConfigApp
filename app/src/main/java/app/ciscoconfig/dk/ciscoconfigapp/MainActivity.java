@@ -91,7 +91,9 @@ public class MainActivity extends AppCompatActivity {
             else BtnGuides.setEnabled(true);
         } else {
             BtnGuides.setEnabled(false);
-            txtGuides.setVisibility(View.VISIBLE);
+            if (txtGuides != null) {
+                txtGuides.setVisibility(View.VISIBLE);
+            }
         }
     }
 
