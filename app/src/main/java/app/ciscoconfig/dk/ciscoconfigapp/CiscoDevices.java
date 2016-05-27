@@ -10,24 +10,24 @@ import java.util.List;
  */
 public class CiscoDevices {
 
-    public String[] DeviceInfo;
-    //public String[][] DeviceModel = new String[][];
-    public String[] FastEthernetInterfaces;
-    public String[] GigabitInterfaces;
-    public String[] SerialInterfaces;
+    public ArrayList DeviceInfo;
+    public ArrayList<String> FastEthernetInterfaces;
+    public ArrayList<String> GigabitInterfaces;
+    public ArrayList<String> SerialInterfaces;
 
-    public String[] Router1900(){
-        for (int i=0;i<1;i++) {
-            //DeviceInfo[1] = new String[][]{"Gigabitethernet 0/"+i};
-            GigabitInterfaces[i] = "Gigabitethernet 0/"+i;
-        }
-        for (int i=0;i<1;i++) {
-            //DeviceInfo[2] = new String[][]{"Serial 0/"+i};
-            SerialInterfaces[i] = "Serial 0/0/"+i;
-        }
-        DeviceInfo[0] = "Router 1900";
-        DeviceInfo[1] = GigabitInterfaces.toString();
-        DeviceInfo[2] = SerialInterfaces.toString();
+    public ArrayList Router1900(){
+        GigabitInterfaces.add("Gigabitethernet 0");
+//        for (int i=1;i<3;i++) {
+//            //DeviceInfo[1] = new String[][]{"Gigabitethernet 0/"+i};
+//            GigabitInterfaces.add("Gigabitethernet 0/"+i);
+//        }
+//        for (int i=1;i<3;i++) {
+//            //DeviceInfo[2] = new String[][]{"Serial 0/"+i};
+//            SerialInterfaces.add("Serial 0/0/"+i);
+//        }
+        //DeviceInfo.add("Router 1900");
+        DeviceInfo.add(GigabitInterfaces);
+        //DeviceInfo.add(SerialInterfaces);
 
         return DeviceInfo;
     }
