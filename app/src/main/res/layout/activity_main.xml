@@ -1,93 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center|top"
-    android:orientation="vertical"
-    android:padding="@dimen/activity_vertical_margin"
-    android:weightSum="1"
-    tools:context="app.ciscoconfig.dk.ciscoconfigapp.MainActivity">
+    android:fillViewport="true">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/connect_btn_telnet"
-        android:textAllCaps="true"
-        android:textColor="@color/colorAccent"
-        android:textSize="40sp" />
-
-    <LinearLayout
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
+        android:layout_height="match_parent"
+        android:gravity="center|top"
         android:orientation="vertical"
-        android:padding="16dp">
-
-        <EditText
-            android:id="@+id/EditIPAdresse"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/connect_ipAddress"
-            android:inputType="phone" />
-
-        <EditText
-            android:id="@+id/EditPortNr"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/connect_portNumber"
-            android:inputType="number"
-            android:maxLength="5" />
-
-        <EditText
-            android:id="@+id/txtTelnetPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/connect_telnet_password"
-            android:inputType="number"
-            android:maxLength="5"
-            android:layout_gravity="center_horizontal" />
-
-        <EditText
-            android:id="@+id/txtSecretPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="@string/connect_secret_password"
-            android:inputType="number"
-            android:maxLength="5"
-            android:layout_gravity="center_horizontal" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/BtnConnecting"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/connect_btn_connect"
-            android:textSize="30sp" />
-
-        <Button
-            android:id="@+id/BtnGuides"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom"
-            android:text="@string/connect_Guides"
-            android:textSize="30sp" />
+        android:padding="@dimen/activity_vertical_margin"
+        android:weightSum="1"
+        tools:context="app.ciscoconfig.dk.ciscoconfigapp.MainActivity">
 
         <TextView
-            android:id="@+id/TxtGuides"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:visibility="invisible"
-            android:text="@string/guides_txt_req_internet"
-            android:textSize="20sp" />
+            android:text="@string/connect_btn_telnet"
+            android:textAllCaps="true"
+            android:textColor="@color/colorAccent"
+            android:textSize="40sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText
+                android:id="@+id/EditIPAdresse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/connect_ipAddress"
+                android:inputType="phone" />
+
+            <EditText
+                android:id="@+id/EditPortNr"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/connect_portNumber"
+                android:inputType="number"
+                android:maxLength="5" />
+
+            <EditText
+                android:id="@+id/txtTelnetPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:hint="@string/connect_telnet_password"
+                android:inputType="number"
+                android:maxLength="5" />
+
+            <EditText
+                android:id="@+id/txtSecretPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:hint="@string/connect_secret_password"
+                android:inputType="number"
+                android:maxLength="5" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/BtnConnecting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/connect_btn_connect"
+                android:textSize="30sp" />
+
+            <Button
+                android:id="@+id/BtnGuides"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:text="@string/connect_Guides"
+                android:textSize="30sp" />
+
+            <TextView
+                android:id="@+id/TxtGuides"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="@string/guides_txt_req_internet"
+                android:textSize="20sp"
+                android:visibility="invisible" />
+        </LinearLayout>
     </LinearLayout>
-</LinearLayout>
+</ScrollView>
 
 
 
