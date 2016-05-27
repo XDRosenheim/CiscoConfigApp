@@ -18,8 +18,7 @@
         <!-- Main Activity -->
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
-            android:windowSoftInputMode="activity ">
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
