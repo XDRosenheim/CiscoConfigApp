@@ -38,6 +38,24 @@
             android:hint="@string/connect_portNumber"
             android:inputType="number"
             android:maxLength="5" />
+
+        <EditText
+            android:id="@+id/txtTelnetPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/connect_telnet_password"
+            android:inputType="number"
+            android:maxLength="5"
+            android:layout_gravity="center_horizontal" />
+
+        <EditText
+            android:id="@+id/txtSecretPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/connect_secret_password"
+            android:inputType="number"
+            android:maxLength="5"
+            android:layout_gravity="center_horizontal" />
     </LinearLayout>
 
     <LinearLayout

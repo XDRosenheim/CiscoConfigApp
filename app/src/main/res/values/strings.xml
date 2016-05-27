@@ -19,4 +19,6 @@
     <string name="guides_Switch_Config">Switch Config</string>
     <string name="guides_txt_req_internet">Guides Require Internet</string>
     <string name="home_configs">Configs</string>
+    <string name="connect_telnet_password">Telnet Password</string>
+    <string name="connect_secret_password">Secret Password</string>
 </resources>
