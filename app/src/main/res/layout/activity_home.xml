@@ -1,47 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_vertical_margin"
-    android:orientation="vertical"
-    android:gravity="center|top"
-    tools:context="app.ciscoconfig.dk.ciscoconfigapp.HomeActivity" >
+    android:fillViewport="true">
 
-    <TextView
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/home_header"
-        android:id="@+id/textView"
-        android:layout_gravity="center_horizontal"
-        android:textSize="30sp" />
+        android:layout_height="match_parent"
+        android:gravity="center|top"
+        android:orientation="vertical"
+        android:padding="@dimen/activity_vertical_margin"
+        tools:context="app.ciscoconfig.dk.ciscoconfigapp.HomeActivity">
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnSetHostname"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/home_hostname" />
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/home_header"
+            android:textSize="30sp" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/home_motd"
-        android:id="@+id/btnSetMotd"
-        android:layout_gravity="center_horizontal" />
+        <Button
+            android:id="@+id/btnSetHostname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/home_hostname" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnSaveConfig"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/home_save_config" />
+        <Button
+            android:id="@+id/btnSetMotd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/home_motd" />
 
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/btnBack"
-        android:layout_gravity="center_horizontal"
-        android:text="@string/all_back" />
+        <Button
+            android:id="@+id/btnSaveConfig"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/home_save_config" />
 
-</LinearLayout>
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/all_back" />
+
+    </LinearLayout>
+</ScrollView>

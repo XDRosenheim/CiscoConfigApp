@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        
+
         //Fundet komponenterne via ID.
         EditIpAddress = (EditText) findViewById(R.id.EditIPAdresse);
         EditPortNr = (EditText) findViewById(R.id.EditPortNr);
