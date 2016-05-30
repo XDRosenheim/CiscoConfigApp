@@ -16,6 +16,7 @@ public class GuidesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_guides);
 
+        //Knap der føre brugeren til en side med OSI Modellen.
         OsiModel = (Button) findViewById(R.id.Btn_Guides_OsiModel);
         OsiModel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,46 +27,51 @@ public class GuidesActivity extends AppCompatActivity {
             }
         });
 
+        //Knap der føre brugeren til en side med Router Models.
         RouterModel = (Button) findViewById(R.id.Btn_Guides_RouterModels);
         RouterModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri CiscoModelUri = Uri.parse("http://www.cisco.com/c/en/us/products/routers/product-listing.html");
-                Intent intentCisco = new Intent(Intent.ACTION_VIEW, CiscoModelUri);
-                startActivity(intentCisco);
+                Uri RouterModelUri = Uri.parse("http://www.cisco.com/c/en/us/products/routers/product-listing.html");
+                Intent intentRouterModel = new Intent(Intent.ACTION_VIEW, RouterModelUri);
+                startActivity(intentRouterModel);
             }
         });
 
+        //Knap der føre brugeren til en side med Switch Models.
         Switchmodels = (Button) findViewById(R.id.Btn_Guides_SwitchModels);
         Switchmodels.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri RouterConfUri = Uri.parse("http://www.cisco.com/c/en/us/products/switches/product-listing.html");
-                Intent intenRouter = new Intent(Intent.ACTION_VIEW, RouterConfUri);
-                startActivity(intenRouter);
+                Uri SwitchModelUri = Uri.parse("http://www.cisco.com/c/en/us/products/switches/product-listing.html");
+                Intent intenSwitchModel = new Intent(Intent.ACTION_VIEW, SwitchModelUri);
+                startActivity(intenSwitchModel);
             }
         });
 
+        //Knap Der føre brugeren til en side med Router Configuration.
         RouterConfig = (Button)findViewById(R.id.Btn_Guides_RouterConfig);
         RouterConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri RouterConfUri = Uri.parse("http://www.cisco.com/c/en/us/td/docs/routers/access/1900/software/configuration/guide/Software_Configuration.html");
+                Uri RouterConfUri = Uri.parse("https://www.cisco.com/en/US/docs/routers/access/800/850/software/configuration/guide/routconf.pdf");
                 Intent intenRouter = new Intent(Intent.ACTION_VIEW, RouterConfUri);
                 startActivity(intenRouter);
             }
         });
 
+        //Knap Der føre brugeren til en side med Switch Configuration.
         SwitchConfig = (Button) findViewById(R.id.Btn_Guides_SwitchConfig);
         SwitchConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri SwitchConfUri = Uri.parse("http://computernetworkingnotes.com/ccna-study-guide/basic-switch-configuration-guide-with-examples.html");
+                Uri SwitchConfUri = Uri.parse("https://www.pantz.org/software/ios/ioscommands.html#IOSCommands");
                 Intent intentSwitch = new Intent(Intent.ACTION_VIEW, SwitchConfUri);
                 startActivity(intentSwitch);
             }
         });
 
+        //Knap der føre brugeren til Google.com
         ToGoogle = (Button) findViewById(R.id.Btn_Guides_Google);
         ToGoogle.setOnClickListener(new View.OnClickListener() {
             @Override

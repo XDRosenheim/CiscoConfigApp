@@ -6,13 +6,22 @@
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:gravity="center|top"
         android:orientation="vertical"
         android:padding="@dimen/activity_vertical_margin"
         android:weightSum="1"
         tools:context="app.ciscoconfig.dk.ciscoconfigapp.MainActivity">
+
+        <com.google.android.gms.ads.AdView
+            android:id="@+id/adView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/BannerIDUnit">
+        </com.google.android.gms.ads.AdView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -49,14 +58,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:hint="@string/connect_telnet_password" />
+                android:hint="@string/connect_telnet_password"
+                android:inputType="text"/>
 
             <EditText
                 android:id="@+id/txtSecretPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:hint="@string/connect_secret_password" />
+                android:hint="@string/connect_secret_password"
+                android:inputType="text"/>
         </LinearLayout>
 
         <LinearLayout
@@ -91,10 +102,12 @@
 
         <TextView
             android:layout_width="206dp"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:text="New Text"
             android:id="@+id/textView3"
             android:layout_weight="0.71" />
+
+
     </LinearLayout>
 </ScrollView>
 

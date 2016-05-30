@@ -12,7 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdSize;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -36,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+
+        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
+
+        AdView mAdView = (AdView) findViewById(R.id.adView);
+        //AdRequest adRequest = new AdRequest.Builder().build();
+        //mAdView.setAdSize(AdSize.BANNER);
+        //mAdView.loadAd(adRequest);
 
         //Fundet komponenterne via ID.
         EditIpAddress = (EditText) findViewById(R.id.EditIPAdresse);
@@ -76,7 +86,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 /**
-                 * Opens a the guide activity.
+                 * Opens the guide activity.
                  */
                 ToGuide = new Intent(MainActivity.this, GuidesActivity.class);
                 startActivity(ToGuide);
@@ -132,7 +142,7 @@ public class MainActivity extends AppCompatActivity {
      * Check users network connection. (Not internet, just network)
      * Returns:
      * true - if user has a network connection (WiFi/Mobile/Ethernet)
-     * false - if user doesnøt have a network connection
+     * false - if user doesn't have a network connection
      */
     private boolean isConnected() {
         ConnectivityManager CheckNetwork = (ConnectivityManager)
@@ -140,4 +150,6 @@ public class MainActivity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = CheckNetwork.getActiveNetworkInfo();
         return activeNetworkInfo != null;
     }
+
+
 }
