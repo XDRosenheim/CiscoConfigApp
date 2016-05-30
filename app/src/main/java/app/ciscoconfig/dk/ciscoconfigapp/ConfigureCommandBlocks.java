@@ -7,7 +7,7 @@ import java.util.ArrayList;
  * Creation date 20-05-2016
  */
 public class ConfigureCommandBlocks {
-    public ArrayList<String> array;
+    public ArrayList<String> array = new ArrayList<String>();
 
     // Swtich trunking
     public ArrayList SwitchTrunking(String inferfaceRange, String Vlan){
