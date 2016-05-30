@@ -28,4 +28,7 @@
     <string name="home_save_config">Copy running config to startup config</string>
     <string name="ethernetSetup_ipaddress">IP Address</string>
     <string name="BannerIDUnit">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="EditIpAdresse">Ip Adresse:</string>
+    <string name="EditPortNr">Port Number:</string>
+    <string name="BtnConnect">Connect</string>
 </resources>

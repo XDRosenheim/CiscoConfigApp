@@ -45,9 +45,8 @@ public class MainActivity extends AppCompatActivity {
         AdView mAdView = (AdView) findViewById(R.id.adView);
 
         //Må ikke være aktiv så længe at det stadig er i test.
-        //AdRequest adRequest = new AdRequest.Builder().build();
-        //mAdView.setAdSize(AdSize.BANNER);
-        //mAdView.loadAd(adRequest);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
 
         //Fundet komponenterne via ID.
         EditIpAddress = (EditText) findViewById(R.id.EditIPAdresse);
@@ -113,8 +112,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // tor
-        textView3 = (TextView)findViewById(R.id.textView3);
-        textView3.setText(device.Router1900().toString());
+        //textView3 = (TextView)findViewById(R.id.textView3);
+        //textView3.setText(device.Router1900().toString());
     }
 
     /**

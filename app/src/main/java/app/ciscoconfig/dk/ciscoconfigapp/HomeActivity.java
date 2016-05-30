@@ -1,5 +1,6 @@
 package app.ciscoconfig.dk.ciscoconfigapp;
 
+
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -10,6 +11,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -18,6 +22,7 @@ public class HomeActivity extends AppCompatActivity {
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
