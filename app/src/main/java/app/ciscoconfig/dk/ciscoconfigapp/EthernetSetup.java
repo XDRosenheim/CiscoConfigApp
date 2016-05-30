@@ -10,9 +10,8 @@ public class EthernetSetup extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState, PersistableBundle persistentState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ipsetup);
-
-        // TODO:
-
+        // TODO: Button click-tap.
+        // TODO: Add it here.
     }
 
     public boolean checkIP(String ip) {

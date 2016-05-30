@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/connect_telnet_password"
-                android:inputType="text" />
+                android:inputType="textPassword" />
 
             <EditText
                 android:id="@+id/txtSecretPassword"
@@ -59,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/connect_secret_password"
-                android:inputType="text" />
+                android:inputType="textPassword" />
         </LinearLayout>
 
         <LinearLayout
