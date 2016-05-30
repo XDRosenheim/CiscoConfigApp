@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
 
         AdView mAdView = (AdView) findViewById(R.id.adView);
+
+        //Må ikke være aktiv så længe at det stadig er i test.
         //AdRequest adRequest = new AdRequest.Builder().build();
         //mAdView.setAdSize(AdSize.BANNER);
         //mAdView.loadAd(adRequest);
