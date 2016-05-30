@@ -11,22 +11,22 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Configs"
+        android:text="@string/home_header"
         android:id="@+id/textView"
         android:layout_gravity="center_horizontal"
-        android:textSize="30dp" />
+        android:textSize="30sp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnSetHostname"
         android:layout_gravity="center_horizontal"
-        android:text="Set hostname" />
+        android:text="@string/home_hostname" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Set banner"
+        android:text="@string/home_motd"
         android:id="@+id/btnSetMotd"
         android:layout_gravity="center_horizontal" />
 
@@ -35,13 +35,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnSaveConfig"
         android:layout_gravity="center_horizontal"
-        android:text="Copy running config to startup config" />
+        android:text="@string/home_save_config" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btnBack"
         android:layout_gravity="center_horizontal"
-        android:text="Back" />
+        android:text="@string/all_back" />
 
 </LinearLayout>

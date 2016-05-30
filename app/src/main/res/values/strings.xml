@@ -12,6 +12,8 @@
     <string name="connect_Connected">Connected</string>
     <string name="connect_connecting">Connecting…</string>
     <string name="connect_Guides">Guides</string>
+    <string name="connect_telnet_password">Telnet Password</string>
+    <string name="connect_secret_password">Enable/Secret Password</string>
     <string name="guides_Guides">Guides</string>
     <string name="guides_osi_model">OSI-Model</string>
     <string name="guides_cisco_models">Cisco Models</string>
@@ -19,6 +21,9 @@
     <string name="guides_Switch_Config">Switch Config</string>
     <string name="guides_txt_req_internet">Guides Require Internet</string>
     <string name="home_configs">Configs</string>
-    <string name="connect_telnet_password">Telnet Password</string>
-    <string name="connect_secret_password">Secret Password</string>
+    <string name="home_header">Configs</string>
+    <string name="home_hostname">Set hostname</string>
+    <string name="home_motd">Set banner</string>
+    <string name="home_save_config">Copy running config to startup config</string>
+    <string name="ethernetSetup_ipaddress">IP Address</string>
 </resources>

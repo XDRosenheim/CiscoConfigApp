@@ -25,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private EditText EditPortNr = null;
     private Button BtnConnect, BtnGuides;
 
+    // tor
+    TextView textView3;
+    CiscoDevices device = new CiscoDevices();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +99,10 @@ public class MainActivity extends AppCompatActivity {
                 txtGuides.setVisibility(View.VISIBLE);
             }
         }
+
+        // tor
+        textView3 = (TextView)findViewById(R.id.textView3);
+        textView3.setText(device.Router1900().toString());
     }
 
     /**

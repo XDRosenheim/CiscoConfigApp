@@ -2,7 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:fillViewport="true" >
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
@@ -49,18 +49,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:hint="@string/connect_telnet_password"
-                android:inputType="number"
-                android:maxLength="5" />
+                android:hint="@string/connect_telnet_password" />
 
             <EditText
                 android:id="@+id/txtSecretPassword"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
-                android:hint="@string/connect_secret_password"
-                android:inputType="number"
-                android:maxLength="5" />
+                android:hint="@string/connect_secret_password" />
         </LinearLayout>
 
         <LinearLayout
@@ -92,6 +88,13 @@
                 android:textSize="20sp"
                 android:visibility="invisible" />
         </LinearLayout>
+
+        <TextView
+            android:layout_width="206dp"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textView3"
+            android:layout_weight="0.71" />
     </LinearLayout>
 </ScrollView>
 
