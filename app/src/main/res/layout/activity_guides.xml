@@ -21,10 +21,16 @@
         android:text="@string/guides_osi_model"
         android:textSize="25sp" />
     <Button
-        android:id="@+id/Btn_Guides_CiscoModels"
+        android:id="@+id/Btn_Guides_RouterModels"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/guides_cisco_models"
+        android:text="@string/guides_Router_models"
+        android:textSize="25sp" />
+    <Button
+        android:id="@+id/Btn_Guides_SwitchModels"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/guides_switch_models"
         android:textSize="25sp" />
     <Button
         android:id="@+id/Btn_Guides_RouterConfig"

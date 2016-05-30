@@ -10,7 +10,7 @@
     <string name="connect_portNumber">Port Nummer (23 hvis feltet er tomt)</string>
     <string name="connect_connecting">Forbinder…</string>
     <string name="guides_Guides">Vejledninger</string>
-    <string name="guides_Switch_Config">Switch konfigurering</string>
+    <string name="guides_Switch_Config">Switch konfigurering(PDF)</string>
     <string name="guides_cisco_models">Cisco modeller</string>
     <string name="guides_vejen_til_google">Gå til Google</string>
     <string name="guides_router_config">Router konfigurering</string>
