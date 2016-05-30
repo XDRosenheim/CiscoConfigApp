@@ -12,10 +12,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdSize;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+//import com.google.android.gms.ads.AdRequest;
+//import com.google.android.gms.ads.AdSize;
+//import com.google.android.gms.ads.AdView;
+//import com.google.android.gms.ads.MobileAds;
 import java.io.IOException;
 import java.net.Socket;
 
@@ -28,10 +28,6 @@ public class MainActivity extends AppCompatActivity {
     private EditText EditPortNr = null;
     private Button BtnConnect, BtnGuides;
 
-    // tor
-    TextView textView3;
-    CiscoDevices device = new CiscoDevices();
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +36,9 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
+        //MobileAds.initialize(getApplicationContext(), "ca-app-pub-3940256099942544~3347511713");
 
-        AdView mAdView = (AdView) findViewById(R.id.adView);
+        //AdView mAdView = (AdView) findViewById(R.id.adView);
 
         //Må ikke være aktiv så længe at det stadig er i test.
         AdRequest adRequest = new AdRequest.Builder().build();
@@ -110,10 +106,13 @@ public class MainActivity extends AppCompatActivity {
                 txtGuides.setVisibility(View.VISIBLE);
             }
         }
+<<<<<<< HEAD
 
         // tor
         //textView3 = (TextView)findViewById(R.id.textView3);
         //textView3.setText(device.Router1900().toString());
+=======
+>>>>>>> 6045d51474d5eb9fa262ffc0beff9246cc036ac9
     }
 
     /**

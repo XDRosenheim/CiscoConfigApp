@@ -15,13 +15,6 @@
         android:weightSum="1"
         tools:context="app.ciscoconfig.dk.ciscoconfigapp.MainActivity">
 
-        <com.google.android.gms.ads.AdView
-            android:id="@+id/adView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            ads:adSize="BANNER"
-            ads:adUnitId="@string/BannerIDUnit">
-        </com.google.android.gms.ads.AdView>
 
         <TextView
             android:layout_width="wrap_content"
@@ -99,15 +92,12 @@
                 android:textSize="20sp"
                 android:visibility="invisible" />
         </LinearLayout>
-
         <TextView
             android:layout_width="206dp"
             android:layout_height="0dp"
             android:text="New Text"
             android:id="@+id/textView3"
             android:layout_weight="0.71" />
-
-
     </LinearLayout>
 </ScrollView>
 
