@@ -16,6 +16,9 @@ public class CiscoDevices {
     public ArrayList<String> SerialInterfaces = new ArrayList<String>();
 
     public ArrayList Router1900(){
+        DeviceInfo.clear();
+        GigabitInterfaces.clear();
+        SerialInterfaces.clear();
         for (int i=0;i<=1;i++) {
             GigabitInterfaces.add("Gigabitethernet 0/"+i);
         }
@@ -27,4 +30,5 @@ public class CiscoDevices {
         DeviceInfo.add(SerialInterfaces);
         return DeviceInfo;
     }
+
 }

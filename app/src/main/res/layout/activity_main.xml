@@ -92,11 +92,5 @@
                 android:visibility="invisible" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView3"
-            android:layout_width="206dp"
-            android:layout_height="0dp"
-            android:layout_weight="0.71"
-            android:text="New Text" />
     </LinearLayout>
 </ScrollView>
