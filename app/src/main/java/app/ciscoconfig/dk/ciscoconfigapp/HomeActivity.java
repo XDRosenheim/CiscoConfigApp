@@ -17,8 +17,7 @@ import android.os.Bundle;
 
 public class HomeActivity extends AppCompatActivity {
 
-    Button btnBack, btnSetHostname,
-            btnSetMotd;
+    Button btnBack, btnSetHostname, btnSetMotd;
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
@@ -28,14 +27,10 @@ public class HomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        try {
-            Sock = Singleton.getSocket();
-            Out = new PrintWriter(Sock.getOutputStream(), true);
-            In = new BufferedReader(new InputStreamReader(Sock.getInputStream()));
 
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            Sock = Singleton.getSocket();
+            Out = Singleton.getOut();
+            In = Singleton.getIn();
 
         btnSetHostname = (Button) findViewById(R.id.btnSetHostname);
         btnSetHostname.setOnClickListener(new View.OnClickListener() {

@@ -12,7 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.Socket;
 
 public class MainActivity extends AppCompatActivity {
@@ -23,6 +27,9 @@ public class MainActivity extends AppCompatActivity {
     private EditText EditIpAddress = null;
     private EditText EditPortNr = null;
     private Button BtnConnect, BtnGuides;
+    private Socket Sock;
+    private PrintWriter Out;
+    private BufferedReader In;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +53,13 @@ public class MainActivity extends AppCompatActivity {
                         if (PortNr.equals("")) PortNr = "23";
                         Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_SHORT).show();
                         //Opretter en socket som bruges som Telnet til at connecte til Router.
-                        Socket Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
+                        Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
                         Sock.setKeepAlive(true);
                         Singleton.setSocket(Sock);
+                        Out = new PrintWriter(Sock.getOutputStream(), true);
+                        Singleton.setOut(Out);
+                        In = new BufferedReader(new InputStreamReader(Sock.getInputStream()));
+                        Singleton.setIn(In);
                         if (Sock.isConnected()) {
                             ToConf = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(ToConf);
