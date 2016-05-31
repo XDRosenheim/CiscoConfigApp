@@ -22,6 +22,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
 
         <!-- Home Activity -->
@@ -29,14 +30,18 @@
             android:name=".HomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"/>
 
         <!-- Guides Activity -->
         <activity
             android:name=".GuidesActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
-            android:windowSoftInputMode="adjustResize" />
+            android:windowSoftInputMode="adjustResize"/>
+
+        <activity android:name=".Pop"
+            android:theme="@style/AppTheme.CustomTheme" />
+
     </application>
 
 </manifest>

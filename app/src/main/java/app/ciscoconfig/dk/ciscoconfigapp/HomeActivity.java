@@ -1,17 +1,15 @@
 package app.ciscoconfig.dk.ciscoconfigapp;
 
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
-import android.text.InputType;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ScrollView;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -19,7 +17,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends Activity {
 
     Button btnBack, btnSetHostname, btnSetMotd;
     TextView txtConsole;
@@ -96,48 +94,19 @@ public class HomeActivity extends AppCompatActivity {
                     public void onClick(View v) {
                         ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
 
-
-
-
-////// TESTING AREA //////
-                        AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
-                        builder.setTitle("Title");
-
-                        // Set up the input
-                        final EditText input = new EditText(getApplicationContext());
-                        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
-                        input.setInputType(InputType.TYPE_CLASS_TEXT);
-                        builder.setView(input);
-
-                        // Set up the buttons
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                m_Text = input.getText().toString();
-                            }
-                        });
-                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-                                dialog.cancel();
-                            }
-                        });
-
-                        builder.show();
-
-////// TESTING AREA //////
-
-
-
-
-
+/////// TESTING AREA ///////
+                        Intent ToConf = new Intent(getApplicationContext(), Pop.class);
+                        startActivity(ToConf);
+/////// TESTING AREA ///////
 
                         cmd.setMOTD(m_Text);
+                        /*
                         for (String sendMe : cmd.array) {
                             Out.println(sendMe); // Send commands to device.
                             txtConsole.setText(txtConsole.getText().toString() + "\n" + sendMe);
                             viewterminal.fullScroll(View.FOCUS_DOWN);
                         }
+                        */
                     }
                 });
             }
