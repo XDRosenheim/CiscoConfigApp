@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,7 @@ public class HomeActivity extends AppCompatActivity {
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
+    private String m_Text;
 
 
     @Override
@@ -92,24 +94,29 @@ public class HomeActivity extends AppCompatActivity {
                 btnSetMotd.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        final String[] text = {null};
                         ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
 
+
+
+
+////// TESTING AREA //////
                         AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
                         builder.setTitle("Title");
-                        View viewInflated = LayoutInflater.from(getApplicationContext()).inflate(R.layout.text_inpu_password, null);
-                        final EditText input = (EditText) viewInflated.findViewById(R.id.input);
-                        builder.setView(viewInflated);
 
-                        builder.setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        // Set up the input
+                        final EditText input = new EditText(getApplicationContext());
+                        // Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+                        input.setInputType(InputType.TYPE_CLASS_TEXT);
+                        builder.setView(input);
+
+                        // Set up the buttons
+                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                String temp_text = input.getText().toString();
-                                text[0] = temp_text;
-                                dialog.dismiss();
+                                m_Text = input.getText().toString();
                             }
                         });
-                        builder.setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 dialog.cancel();
@@ -118,7 +125,14 @@ public class HomeActivity extends AppCompatActivity {
 
                         builder.show();
 
-                        cmd.setMOTD(text[0]);
+////// TESTING AREA //////
+
+
+
+
+
+
+                        cmd.setMOTD(m_Text);
                         for (String sendMe : cmd.array) {
                             Out.println(sendMe); // Send commands to device.
                             txtConsole.setText(txtConsole.getText().toString() + "\n" + sendMe);
