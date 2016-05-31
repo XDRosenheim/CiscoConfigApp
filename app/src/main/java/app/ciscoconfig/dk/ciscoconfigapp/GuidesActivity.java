@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class GuidesActivity extends AppCompatActivity {
 
-    Button OsiModel, RouterModel,Switchmodels, RouterConfig, SwitchConfig, ToGoogle, BacktoMain;
+    Button OsiModel, RouterModel, Switchmodels, RouterConfig, SwitchConfig, ToGoogle, BacktoMain;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,7 @@ public class GuidesActivity extends AppCompatActivity {
         });
 
         //Knap Der føre brugeren til en side med Router Configuration.
-        RouterConfig = (Button)findViewById(R.id.Btn_Guides_RouterConfig);
+        RouterConfig = (Button) findViewById(R.id.Btn_Guides_RouterConfig);
         RouterConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

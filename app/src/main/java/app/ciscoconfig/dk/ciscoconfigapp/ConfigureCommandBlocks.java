@@ -10,32 +10,32 @@ public class ConfigureCommandBlocks {
     public ArrayList<String> array = new ArrayList<String>();
 
     // Swtich trunking
-    public ArrayList SwitchTrunking(String inferfaceRange, String Vlan){
+    public ArrayList SwitchTrunking(String inferfaceRange, String Vlan) {
         array.clear();
         array.add("conf t");
-        array.add("int range fa "+inferfaceRange);
+        array.add("int range fa " + inferfaceRange);
         array.add("shut");
         array.add("switchport mode trunk");
-        array.add("switchport trunknative vlan "+ Vlan);
+        array.add("switchport trunknative vlan " + Vlan);
         return array;
     }
 
 
     // Set static route
-    public ArrayList setStaticRoute(String Network,String Netmask, String NextHop){
+    public ArrayList setStaticRoute(String Network, String Netmask, String NextHop) {
         array.clear();
         array.add("conf t");
-        array.add("ip route "+ Network +" "+Netmask +" "+NextHop);
+        array.add("ip route " + Network + " " + Netmask + " " + NextHop);
         array.add("end");
         return array;
     }
 
     // set OSPF link priority
-    public ArrayList OSPFLinkPRiority(String EthernetInterface, String priorityValue){
+    public ArrayList OSPFLinkPRiority(String EthernetInterface, String priorityValue) {
         array.clear();
         array.add("conf t");
-        array.add("int "+EthernetInterface);
-        array.add("ip ospf priority "+priorityValue);
+        array.add("int " + EthernetInterface);
+        array.add("ip ospf priority " + priorityValue);
         array.add("no shut");
         array.add("end");
         return array;
@@ -145,7 +145,7 @@ public class ConfigureCommandBlocks {
     public ArrayList setMOTD(String msg) {
         array.clear();
         array.add("conf t");
-        array.add("banner motd #" + msg+"#");
+        array.add("banner motd #" + msg + "#");
         array.add("end");
         return array;
     }
