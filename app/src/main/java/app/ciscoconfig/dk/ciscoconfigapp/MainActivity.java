@@ -70,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                                     if (reader.startsWith("Password") && firstPass) {
                                         Out.println(telnetPass.getText());
                                         firstPass = false;
+                                        Out.println("ena");
                                     } else if (reader.startsWith("Password") && !firstPass) {
                                         Out.println(secretPass.getText());
                                         break;
