@@ -8,11 +8,8 @@ import android.widget.Button;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -28,9 +25,9 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-            Sock = Singleton.getSocket();
-            Out = Singleton.getOut();
-            In = Singleton.getIn();
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
 
         btnSetHostname = (Button) findViewById(R.id.btnSetHostname);
         btnSetHostname.setOnClickListener(new View.OnClickListener() {
@@ -65,8 +62,7 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-    private void CloseAll()
-    {//Lukker alle forbindelserne ned igen.
+    private void CloseAll() {//Lukker alle forbindelserne ned igen.
         try {
             In.close();
             Out.close();

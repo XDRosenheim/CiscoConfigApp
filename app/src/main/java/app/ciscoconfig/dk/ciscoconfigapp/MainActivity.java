@@ -39,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        //Fundet komponenterne via ID.
+        // Find komponenterne via ID.
         EditIpAddress = (EditText) findViewById(R.id.EditIPAdresse);
         EditPortNr = (EditText) findViewById(R.id.EditPortNr);
         BtnConnect = (Button) findViewById(R.id.BtnConnecting);
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
                         String PortNr = EditPortNr.getText().toString();
                         if (PortNr.equals("")) PortNr = "23";
                         Toast.makeText(getApplicationContext(), R.string.connect_connecting, Toast.LENGTH_SHORT).show();
-                        //Opretter en socket som bruges som Telnet til at connecte til Router.
+                        // Opretter en socket som bruges som Telnet til at connecte til Router.
                         Sock = new Socket(IpAddress, Integer.parseInt(PortNr));
                         Sock.setKeepAlive(true);
                         Singleton.setSocket(Sock);
@@ -61,6 +61,21 @@ public class MainActivity extends AppCompatActivity {
                         In = new BufferedReader(new InputStreamReader(Sock.getInputStream()));
                         Singleton.setIn(In);
                         if (Sock.isConnected()) {
+                            EditText telnetPass = (EditText) findViewById(R.id.txtTelnetPassword);
+                            EditText secretPass = (EditText) findViewById(R.id.txtSecretPassword);
+                            boolean firstPass = true;
+                            while (true) {
+                                String reader = In.readLine();
+                                if (reader != null) {
+                                    if (reader.startsWith("Password") && firstPass) {
+                                        Out.println(telnetPass.getText());
+                                        firstPass = false;
+                                    } else if (reader.startsWith("Password") && !firstPass) {
+                                        Out.println(secretPass.getText());
+                                        break;
+                                    }
+                                }
+                            }
                             ToConf = new Intent(MainActivity.this, HomeActivity.class);
                             startActivity(ToConf);
                             Toast.makeText(getApplicationContext(), R.string.connect_Connected, Toast.LENGTH_LONG).show();
