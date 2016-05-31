@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,11 +15,10 @@ import java.net.Socket;
 public class HomeActivity extends AppCompatActivity {
 
     Button btnBack, btnSetHostname, btnSetMotd;
-    EditText txtConsole;
+    TextView txtConsole;
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
         Out = Singleton.getOut();
         In = Singleton.getIn();
 
-        txtConsole = (EditText) findViewById(R.id.txtConsole);
+        txtConsole = (TextView) findViewById(R.id.txtConsole);
 
         Thread t1 = new Thread(new Runnable() {
             @Override

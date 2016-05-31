@@ -50,14 +50,17 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/all_back" />
 
-        <EditText
-            android:id="@+id/txtConsole"
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_gravity="center_horizontal"
-            android:lines="5"
-            android:inputType="textMultiLine"
-            android:scrollHorizontally="false" />
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <TextView
+                android:id="@+id/txtConsole"
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
+
+        </ScrollView>
 
     </LinearLayout>
 </ScrollView>
