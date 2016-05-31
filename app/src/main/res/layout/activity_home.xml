@@ -51,8 +51,9 @@
             android:text="@string/all_back" />
 
         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/viewterminal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="200dp"
             android:fillViewport="true">
 
             <TextView
