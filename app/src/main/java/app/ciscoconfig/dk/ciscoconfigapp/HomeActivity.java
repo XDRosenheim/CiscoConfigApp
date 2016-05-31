@@ -36,7 +36,7 @@ public class HomeActivity extends AppCompatActivity {
             public void run() {
                 try {
                     String reader = In.readLine();
-                    if ( reader != null ) {
+                    if (reader != null) {
                         txtConsole.append(reader);
                     }
                 } catch (IOException e) {
