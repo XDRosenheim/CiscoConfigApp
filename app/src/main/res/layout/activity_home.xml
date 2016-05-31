@@ -11,7 +11,8 @@
         android:gravity="center|top"
         android:orientation="vertical"
         android:padding="@dimen/activity_vertical_margin"
-        tools:context="app.ciscoconfig.dk.ciscoconfigapp.HomeActivity">
+        tools:context="app.ciscoconfig.dk.ciscoconfigapp.HomeActivity"
+        android:weightSum="1">
 
         <TextView
             android:id="@+id/textView"
@@ -48,6 +49,15 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/all_back" />
+
+        <EditText
+            android:id="@+id/txtConsole"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_horizontal"
+            android:lines="5"
+            android:inputType="textMultiLine"
+            android:scrollHorizontally="false" />
 
     </LinearLayout>
 </ScrollView>

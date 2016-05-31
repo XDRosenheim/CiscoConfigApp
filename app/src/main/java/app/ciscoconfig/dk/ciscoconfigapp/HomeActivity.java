@@ -5,16 +5,17 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
 
-
 public class HomeActivity extends AppCompatActivity {
 
     Button btnBack, btnSetHostname, btnSetMotd;
+    EditText txtConsole;
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
@@ -29,12 +30,29 @@ public class HomeActivity extends AppCompatActivity {
         Out = Singleton.getOut();
         In = Singleton.getIn();
 
+        txtConsole = (EditText) findViewById(R.id.txtConsole);
+
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String reader = In.readLine();
+                    if ( reader != null ) {
+                        txtConsole.append(reader);
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+        t1.start();
+
         btnSetHostname = (Button) findViewById(R.id.btnSetHostname);
         btnSetHostname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-                cmd.setHostName("GET MESSAGE FROM USER SOMEHOW");
+                cmd.setHostName("ThisIsMyLifeNow");
                 for (String sendMe : cmd.array) {
                     Out.println(sendMe); // Send commands to device.
                 }
@@ -46,7 +64,7 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-                cmd.setMOTD("GET MESSAGE FROM USER SOMEHOW");
+                cmd.setMOTD("This is your brand new MOTD!");
                 for (String sendMe : cmd.array) {
                     Out.println(sendMe); // Send commands to device.
                 }
@@ -57,12 +75,14 @@ public class HomeActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish();
+                CloseAll();
+                finish(); // Die.
             }
         });
     }
 
-    private void CloseAll() {//Lukker alle forbindelserne ned igen.
+    private void CloseAll() {
+        //Lukker alle forbindelserne ned igen.
         try {
             In.close();
             Out.close();
