@@ -3,18 +3,19 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="@dimen/activity_horizontal_margin"
-    android:background="#252525">
+    android:background="#00252525">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:gravity="center">
+        android:gravity="center"
+        android:background="#252525">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="This is the title"
             android:textSize="30dp"
-            android:gravity="fill"/>
+            android:gravity="left" />
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"

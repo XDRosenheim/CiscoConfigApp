@@ -31,4 +31,6 @@
     <string name="EditIpAdresse">Ip Adresse:</string>
     <string name="EditPortNr">Port Number:</string>
     <string name="BtnConnect">Connect</string>
+    <string name="all_OK">OK</string>
+    <string name="all_cancel">CANCEL</string>
 </resources>
