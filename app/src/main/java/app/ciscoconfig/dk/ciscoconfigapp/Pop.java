@@ -37,9 +37,6 @@ public class Pop extends Activity {
 
         final String TextConsoleAnswar = TxtConsoleAnswar.getText().toString();
 
-
-
-
         PopupOK = (Button)findViewById(R.id.Btn_Popup_OK);
         PopupOK.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,9 +59,5 @@ public class Pop extends Activity {
                 finish();
             }
         });
-
-
-
-
     }
 }
