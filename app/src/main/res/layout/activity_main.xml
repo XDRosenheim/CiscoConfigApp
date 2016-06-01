@@ -35,7 +35,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/connect_ipAddress"
-                android:inputType="phone" />
+                android:inputType="phone"
+                android:focusable="false"/>
 
             <EditText
                 android:id="@+id/EditPortNr"

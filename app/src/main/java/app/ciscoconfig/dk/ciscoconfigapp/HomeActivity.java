@@ -18,7 +18,8 @@ import java.net.Socket;
 
 public class HomeActivity extends Activity {
 
-    static final int Popup_Svar = 1;
+    static final int Popup_SvarMotd = 1;
+    static final int Popup_SvarHostname = 1;
 
     Button btnBack, btnSetHostname, btnSetMotd;
     TextView txtConsole;
@@ -75,12 +76,9 @@ public class HomeActivity extends Activity {
         btnSetMotd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
 
                 Intent GetMotd = new Intent(HomeActivity.this, Pop.class);
-                startActivityForResult(GetMotd, Popup_Svar);
-
-                cmd.setMOTD("BaconBanner");
+                startActivityForResult(GetMotd, Popup_SvarMotd);
 
             }
         });
@@ -91,9 +89,7 @@ public class HomeActivity extends Activity {
                 ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
 
                 Intent GetHostName = new Intent(HomeActivity.this, Pop.class);
-                startActivityForResult(GetHostName, Popup_Svar);
-
-                cmd.setHostName("Bacon");
+                startActivityForResult(GetHostName, Popup_SvarHostname);
 
                 for (String sendMe : cmd.array) {
                     Out.println(sendMe); // Send commands to device.
@@ -130,56 +126,44 @@ public class HomeActivity extends Activity {
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-
-
-        if(requestCode == Popup_Svar)
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(requestCode == Popup_SvarMotd)
         {
             if(resultCode == RESULT_OK)
             {
-                final String PopupAnswar = data.getStringExtra("Popup_Svar");
-                btnSetMotd.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
+                        String PopupAnswar = data.getStringExtra("Popup_Svar");
                         ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-
-                        Intent GetMotd = new Intent(HomeActivity.this, Pop.class);
-                        startActivityForResult(GetMotd, Popup_Svar);
 
                         cmd.setMOTD(PopupAnswar);
-
-                    }
-                });
-
-                btnSetHostname.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-
-                        Intent GetHostName = new Intent(HomeActivity.this, Pop.class);
-                        startActivityForResult(GetHostName, Popup_Svar);
-
-                        cmd.setHostName(PopupAnswar);
-
-                        for (String sendMe : cmd.array) {
-                            Out.println(sendMe); // Send commands to device.
-                            txtConsole.setText(txtConsole.getText().toString() + "\n" + sendMe);
-                            viewterminal.fullScroll(View.FOCUS_DOWN);
-                        }
-                    }
-                });
             }
-        }
-
-        if(requestCode == 2)
+        }else if(requestCode == Popup_SvarHostname)
         {
-            if(resultCode == RESULT_CANCELED)
+            if(resultCode == RESULT_OK)
             {
+                String PopupAnswar = data.getStringExtra("Popup_Svar");
+                ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+
+                cmd.setHostName(PopupAnswar);
+            }
+        //Tilføj nye knapper og tildel dem en Requestcode og lav en ny her.
+        }/*else if(requestCode == Popup_Svar )
+        {
+            if(resultCode == RESULT_OK)
+            {
+                String PopupAnswar = data.getStringExtra("Popup_Svar");
+                ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+
+                cmd.setHostName(PopupAnswar);
+            }
+
+        }*/else if(resultCode == RESULT_CANCELED) {
                 Toast.makeText(getApplicationContext(), "Something went wrong, try again.", Toast.LENGTH_SHORT).show();
             }
-        }
 
 
 
     }
+
+
 }
