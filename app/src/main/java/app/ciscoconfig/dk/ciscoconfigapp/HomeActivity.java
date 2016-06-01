@@ -72,8 +72,7 @@ public class HomeActivity extends Activity {
 
 
                     Intent GetMotd = new Intent(HomeActivity.this, Pop.class);
-                    GetMotd.putExtra("OldValue", Oldvalue);
-                    startActivityForResult(GetMotd, 0);
+                    startActivityForResult(GetMotd, RESULT_OK);
 
             }
         });

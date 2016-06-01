@@ -34,9 +34,9 @@ public class Pop extends Activity {
         Button PopupOK, PopupCancel;
         final EditText TxtConsoleAnswar;
 
-        final Intent ReturnAnswer = new Intent();
+
         TxtConsoleAnswar = (EditText) findViewById(R.id.TxtConsoleAnswar);
-        String Value = ReturnAnswer.getStringExtra("OldValue");
+
 
 
         PopupOK = (Button) findViewById(R.id.Btn_Popup_OK);
@@ -44,6 +44,7 @@ public class Pop extends Activity {
             @Override
             public void onClick(View v) {
 
+                Intent ReturnAnswer = new Intent();
                 ReturnAnswer.putExtra("PopupAnswer", TxtConsoleAnswar.getText().toString());
                 setResult(RESULT_OK, ReturnAnswer);
                 finish();
