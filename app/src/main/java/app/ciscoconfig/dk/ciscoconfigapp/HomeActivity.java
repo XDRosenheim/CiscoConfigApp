@@ -125,12 +125,12 @@ public class HomeActivity extends Activity {
         ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
         String Answer = data.getStringExtra("PopupAnswer");
 
-        if ( resultCode== 1) {
-            Toast.makeText(getApplicationContext(), "Something went wrong, try again.", Toast.LENGTH_LONG).show();
-        }else if (requestCode == Popup_SvarMotd) {
-            if (resultCode == 0) {
+
+        if (requestCode == Popup_SvarMotd) {
+            if (resultCode == RESULT_OK) {
 
                 cmd.setMOTD(Answer);
+                Toast.makeText(getApplicationContext(), Answer, Toast.LENGTH_SHORT).show();
 
                 for (String str : cmd.array) {
                     Out.println(str);

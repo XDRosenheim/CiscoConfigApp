@@ -45,7 +45,7 @@ public class Pop extends Activity {
             public void onClick(View v) {
 
                 ReturnAnswer.putExtra("PopupAnswer", TxtConsoleAnswar.getText().toString());
-                setResult(0, ReturnAnswer);
+                setResult(RESULT_OK, ReturnAnswer);
                 finish();
 
                 /*
