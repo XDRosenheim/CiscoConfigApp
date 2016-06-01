@@ -21,6 +21,7 @@
             android:layout_height="2dp"
             android:background="#FF00FFFF" />
         <EditText
+            android:id="@+id/TxtConsoleAnswar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Textbox 1" />
@@ -30,10 +31,12 @@
             android:orientation="horizontal"
             android:gravity="center_horizontal">
             <Button
+                android:id="@+id/Btn_Popup_OK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/all_OK" />
             <Button
+                android:id="@+id/Btn_Popup_Cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/all_cancel" />

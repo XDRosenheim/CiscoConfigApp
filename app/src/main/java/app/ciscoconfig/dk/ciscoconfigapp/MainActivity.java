@@ -1,11 +1,13 @@
 package app.ciscoconfig.dk.ciscoconfigapp;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
@@ -97,6 +99,32 @@ public class MainActivity extends AppCompatActivity {
         BtnGuides.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                AlertDialog.Builder alert = new AlertDialog.Builder(getApplicationContext());
+
+                alert.setTitle("Title");
+                alert.setMessage("Message");
+
+                // Set an EditText view to get user input
+                final EditText input = new EditText(getApplicationContext());
+                alert.setView(input);
+
+                alert.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+
+                        // Do something with value!
+                    }
+                });
+
+                alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int whichButton) {
+                        // Canceled.
+                    }
+                });
+
+                //alert.show();
+
+
                 /**
                  * Opens the guide activity.
                  */
