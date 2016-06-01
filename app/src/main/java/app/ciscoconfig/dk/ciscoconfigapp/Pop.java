@@ -57,9 +57,5 @@ public class Pop extends Activity {
                 finish();
             }
         });
-
-
-
-
     }
 }
