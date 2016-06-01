@@ -19,4 +19,18 @@
     <string name="connect_Guides">Vejledninger</string>
     <string name="guide_txt_req_internet">Guides Require Internet</string>
     <string name="all_back">Tilbage</string>
+    <string name="all_OK">OK</string>
+    <string name="all_cancel">Fortryd</string>
+    <string name="connect_telnet_password">Telnet kode</string>
+    <string name="guides_osi_model">OSI-Modellen</string>
+    <string name="guides_txt_req_internet">Vejledninger kræver en internetforbindelse</string>
+    <string name="guides_switch_models">Switch Modeller</string>
+    <string name="home_save_config">Kopier "running config" til "startup config"</string>
+    <string name="home_motd">Sæt banner</string>
+    <string name="home_hostname">Sæt hostname</string>
+    <string name="home_header">Konfigureringer</string>
+    <string name="home_configs">Konfigureringer</string>
+    <string name="ethernetSetup_ipaddress">IP Adresse</string>
+    <string name="guides_Router_models">Router modeller</string>
+    <string name="connect_secret_password">Aktiverering/hemmelig kode</string>
 </resources>
