@@ -26,7 +26,7 @@ public class HomeActivity extends Activity {
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
-    private String m_Text;
+    String Oldvalue = "";
 
 
     @Override
@@ -69,8 +69,12 @@ public class HomeActivity extends Activity {
         btnSetMotd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent GetMotd = new Intent(HomeActivity.this, Pop.class);
-                startActivityForResult(GetMotd, Popup_SvarMotd);
+
+
+                    Intent GetMotd = new Intent(HomeActivity.this, Pop.class);
+                    GetMotd.putExtra("OldValue", Oldvalue);
+                    startActivityForResult(GetMotd, 0);
+
             }
         });
 
@@ -80,6 +84,7 @@ public class HomeActivity extends Activity {
                 ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
 
                 Intent GetHostName = new Intent(HomeActivity.this, Pop.class);
+                GetHostName.putExtra("Hostname", true);
                 startActivity(GetHostName);
 
                 for (String sendMe : cmd.array) {
@@ -117,20 +122,25 @@ public class HomeActivity extends Activity {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == Popup_SvarMotd) {
-            if (resultCode == RESULT_OK) {
-                String PopupAnswar = data.getStringExtra("Popup_Svar");
-                ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-                cmd.setMOTD(PopupAnswar);
+        ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+        String Answer = data.getStringExtra("PopupAnswer");
+
+        if ( resultCode== 1) {
+            Toast.makeText(getApplicationContext(), "Something went wrong, try again.", Toast.LENGTH_LONG).show();
+        }else if (requestCode == Popup_SvarMotd) {
+            if (resultCode == 0) {
+
+                cmd.setMOTD(Answer);
+
+                for (String str : cmd.array) {
+                    Out.println(str);
+                }
             }
-        } else if (requestCode == Popup_SvarHostname) {
+        }else if (requestCode == Popup_SvarHostname) {
             if (resultCode == RESULT_OK) {
-                String PopupAnswar = data.getStringExtra("Popup_Svar");
-                ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-                cmd.setHostName(PopupAnswar);
+
+                cmd.setMOTD(Answer);
             }
-        } else if (resultCode == RESULT_CANCELED) {
-            Toast.makeText(getApplicationContext(), "Something went wrong, try again.", Toast.LENGTH_SHORT).show();
         }
     }
 }

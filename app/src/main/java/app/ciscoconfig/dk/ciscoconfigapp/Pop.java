@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.io.PrintWriter;
 
@@ -33,27 +34,45 @@ public class Pop extends Activity {
         Button PopupOK, PopupCancel;
         final EditText TxtConsoleAnswar;
 
+        final Intent ReturnAnswer = new Intent();
         TxtConsoleAnswar = (EditText) findViewById(R.id.TxtConsoleAnswar);
+        String Value = ReturnAnswer.getStringExtra("OldValue");
+
 
         PopupOK = (Button) findViewById(R.id.Btn_Popup_OK);
         PopupOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-                cmd.setHostName(TxtConsoleAnswar.getText().toString());
-                PrintWriter Out = Singleton.getOut();
-                for (String str : cmd.array) {
-                    Out.println(str);
+
+                ReturnAnswer.putExtra("PopupAnswer", TxtConsoleAnswar.getText().toString());
+                setResult(0, ReturnAnswer);
+                finish();
+
+                /*
+                    ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+                    cmd.setMOTD(TxtConsoleAnswar.getText().toString());
+                    Toast.makeText(getApplicationContext(), "VIRKER DET ??", Toast.LENGTH_LONG).show();
+                    finish();
+
+
+
+
+                    cmd.setHostName(TxtConsoleAnswar.getText().toString());
+                    PrintWriter Out = Singleton.getOut();
+                    for (String str : cmd.array) {
+                        Out.println(str);
+
+
                 }
                 finish();
+                */
             }
         });
         PopupCancel = (Button) findViewById(R.id.Btn_Popup_Cancel);
         PopupCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent NoReturnPopupAnswar = getIntent();
-                setResult(Activity.RESULT_CANCELED, NoReturnPopupAnswar);
+                Toast.makeText(getApplicationContext(), "Ops. Something went wrong. Try again", Toast.LENGTH_SHORT).show();
                 finish();
             }
         });
