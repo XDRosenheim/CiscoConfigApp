@@ -28,17 +28,12 @@ public class Pop extends Activity {
 
         getWindow().setLayout((int)(width*.8), (int)(height*.6));
 
-
-
         Button PopupOK, PopupCancel;
         EditText TxtConsoleAnswar;
 
         TxtConsoleAnswar = (EditText)findViewById(R.id.TxtConsoleAnswar);
 
         final String TextConsoleAnswar = TxtConsoleAnswar.getText().toString();
-
-
-
 
         PopupOK = (Button)findViewById(R.id.Btn_Popup_OK);
         PopupOK.setOnClickListener(new View.OnClickListener() {

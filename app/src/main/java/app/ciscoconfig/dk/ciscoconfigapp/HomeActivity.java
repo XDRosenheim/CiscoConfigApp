@@ -71,10 +71,40 @@ public class HomeActivity extends Activity {
                 }
             }
         });
-        Thread t2 = new Thread(new Runnable() {
 
+        btnSetMotd.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
+            public void onClick(View v) {
+                ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+
+                Intent GetMotd = new Intent(HomeActivity.this, Pop.class);
+                startActivityForResult(GetMotd, Popup_Svar);
+
+                cmd.setMOTD("BaconBanner");
+
+            }
+        });
+
+        btnSetHostname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+
+                Intent GetHostName = new Intent(HomeActivity.this, Pop.class);
+                startActivityForResult(GetHostName, Popup_Svar);
+
+                cmd.setHostName("Bacon");
+
+                for (String sendMe : cmd.array) {
+                    Out.println(sendMe); // Send commands to device.
+                    txtConsole.setText(txtConsole.getText().toString() + "\n" + sendMe);
+                    viewterminal.fullScroll(View.FOCUS_DOWN);
+                }
+            }
+        });
+
+
+
 
                 btnBack.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -84,10 +114,7 @@ public class HomeActivity extends Activity {
                     }
                 });
 
-            }
-        });
 
-        t2.start();
         t1.start();
     }
 
@@ -104,7 +131,8 @@ public class HomeActivity extends Activity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+
+
         if(requestCode == Popup_Svar)
         {
             if(resultCode == RESULT_OK)
@@ -115,8 +143,8 @@ public class HomeActivity extends Activity {
                     public void onClick(View v) {
                         ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
 
-                        Intent ToConf = new Intent(getApplicationContext(), Pop.class);
-                        startActivityForResult(ToConf, Popup_Svar);
+                        Intent GetMotd = new Intent(HomeActivity.this, Pop.class);
+                        startActivityForResult(GetMotd, Popup_Svar);
 
                         cmd.setMOTD(PopupAnswar);
 
@@ -127,7 +155,12 @@ public class HomeActivity extends Activity {
                     @Override
                     public void onClick(View v) {
                         ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+
+                        Intent GetHostName = new Intent(HomeActivity.this, Pop.class);
+                        startActivityForResult(GetHostName, Popup_Svar);
+
                         cmd.setHostName(PopupAnswar);
+
                         for (String sendMe : cmd.array) {
                             Out.println(sendMe); // Send commands to device.
                             txtConsole.setText(txtConsole.getText().toString() + "\n" + sendMe);
