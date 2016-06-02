@@ -17,13 +17,14 @@ public class HomeActivity extends Activity {
 
     private static final int CodeMotd = 2;
     private static final int CodeHostName = 3;
-    Button btnBack, btnSetHostname, btnSetMotd;
+    Button btnBack, btnSetHostname, btnSetMotd, btnSaveConfig;
     TextView txtConsole;
     ScrollView viewterminal;
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
 
+    ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +37,7 @@ public class HomeActivity extends Activity {
         btnSetHostname = (Button) findViewById(R.id.btnSetHostname);
         btnSetMotd = (Button) findViewById(R.id.btnSetMotd);
         btnBack = (Button) findViewById(R.id.btnBack);
+        btnSaveConfig = (Button) findViewById(R.id.btnSaveConfig);
         viewterminal = (ScrollView) findViewById(R.id.viewterminal);
         txtConsole = (TextView) findViewById(R.id.txtConsole);
 
@@ -68,12 +70,17 @@ public class HomeActivity extends Activity {
         btnSetHostname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
                 Intent GetPopupData = new Intent(HomeActivity.this, Pop.class);
                 startActivityForResult(GetPopupData, CodeHostName);
             }
         });
 
+        btnSaveConfig.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cmd.copyRunToStart();
+            }
+        });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
