@@ -71,11 +71,6 @@ public class HomeActivity extends Activity {
                 ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
                 Intent GetPopupData = new Intent(HomeActivity.this, Pop.class);
                 startActivityForResult(GetPopupData, CodeHostName);
-                for (String sendMe : cmd.array) {
-                    Out.println(sendMe); // Send commands to device.
-                    txtConsole.setText(txtConsole.getText().toString() + "\n" + sendMe);
-                    viewterminal.fullScroll(View.FOCUS_DOWN);
-                }
             }
         });
 
@@ -112,18 +107,12 @@ public class HomeActivity extends Activity {
                 if (resultCode == RESULT_OK) {
                     String Svaret = data.getStringExtra("PopAnswer");
                     cmd.setHostName(Svaret);
-                    for (String str : cmd.array) {
-                        Out.println(str);
-                    }
                 }
             }
             case CodeMotd: {
                 if (resultCode == RESULT_OK) {
                     String Svaret = data.getStringExtra("PopAnswer");
                     cmd.setMOTD(Svaret);
-                    for (String str : cmd.array) {
-                        Out.println(str);
-                    }
                 }
             }
         }
