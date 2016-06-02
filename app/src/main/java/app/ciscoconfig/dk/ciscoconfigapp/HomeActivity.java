@@ -30,10 +30,6 @@ public class HomeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        Sock = Singleton.getSocket();
-        Out = Singleton.getOut();
-        In = Singleton.getIn();
-
         btnSetHostname = (Button) findViewById(R.id.btnSetHostname);
         btnSetMotd = (Button) findViewById(R.id.btnSetMotd);
         btnBack = (Button) findViewById(R.id.btnBack);
