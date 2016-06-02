@@ -15,7 +15,7 @@ public class ConfigureCommandBlocks {
     private BufferedReader In;
 
 
-    private ConfigureCommandBlocks() {
+    public ConfigureCommandBlocks() {
         Sock = Singleton.getSocket();
         Out = Singleton.getOut();
         In = Singleton.getIn();

@@ -38,9 +38,7 @@ public class Pop extends Activity {
     }
 
     public void BtnOK(View v){
-
         String PopUpAnswer = TxtConsoleAnswar.getText().toString();
-
         Intent AnswerBack = new Intent();
         AnswerBack.putExtra("PopAnswer", PopUpAnswer);
         setResult(RESULT_OK, AnswerBack);

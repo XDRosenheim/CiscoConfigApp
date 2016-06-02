@@ -83,7 +83,6 @@ public class HomeActivity extends Activity {
             }
         });
 
-
         t1.start();
     }
 
