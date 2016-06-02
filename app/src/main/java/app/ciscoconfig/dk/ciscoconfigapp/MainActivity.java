@@ -20,7 +20,6 @@ import java.net.Socket;
 
 public class MainActivity extends AppCompatActivity {
 
-    //Variabler på Main Activity
     Intent ToConf;
     Intent ToGuide;
     private EditText EditIpAddress = null;
@@ -34,14 +33,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-
-        // Find komponenterne via ID.
         EditIpAddress = (EditText) findViewById(R.id.EditIPAdresse);
         EditPortNr = (EditText) findViewById(R.id.EditPortNr);
-
         BtnConnect = (Button) findViewById(R.id.BtnConnecting);
         BtnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,16 +92,11 @@ public class MainActivity extends AppCompatActivity {
         BtnGuides.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-
-                /**
-                 * Opens the guide activity.
-                 */
                 ToGuide = new Intent(MainActivity.this, GuidesActivity.class);
-                startActivity(ToGuide);
+                ToConf = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(ToConf);
             }
         });
-
         if (isConnected()) {
             ConnectivityManager connectivityManager = (ConnectivityManager) this.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
@@ -125,16 +115,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * Returns:
-     * true - if IP and port are valid.
-     * false - if IP is not valid or port is too big or too small.
-     */
     private boolean checkIPPort(String ip, String port) {
         try {
             int i = Integer.parseInt(port);
             if (i > 65535) return false;
-        } catch (NumberFormatException nfe) { /** Do nothing. Use default port. */}
+        } catch (NumberFormatException ignored) { }
         try {
             String[] parts = ip.split("\\.");
             if (parts.length != 4) return false;
