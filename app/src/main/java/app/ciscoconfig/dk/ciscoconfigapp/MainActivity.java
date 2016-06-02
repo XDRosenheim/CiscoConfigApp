@@ -93,8 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ToGuide = new Intent(MainActivity.this, GuidesActivity.class);
-                ToConf = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(ToConf);
+                startActivity(ToGuide);
             }
         });
         if (isConnected()) {
