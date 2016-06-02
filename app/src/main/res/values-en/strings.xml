@@ -33,4 +33,5 @@
     <string name="home_hostname">Set Hostname</string>
     <string name="home_motd">Set banner</string>
     <string name="home_save_config">Copy running config to startup config</string>
+    <string name="noipdomainlookup">No IP Domain lookup</string>
 </resources>

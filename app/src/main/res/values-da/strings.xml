@@ -33,4 +33,5 @@
     <string name="ethernetSetup_ipaddress">IP Adresse</string>
     <string name="guides_Router_models">Router modeller</string>
     <string name="connect_secret_password">Aktiverering/hemmelig kode</string>
+    <string name="noipdomainlookup">Kig ikke efter domain IP</string>
 </resources>

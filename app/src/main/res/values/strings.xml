@@ -34,4 +34,5 @@
     <string name="guides_cisco_models">Cisco Models</string>
     <string name="guides_vejen_til_google">Go to Google</string>
     <string name="guide_txt_req_internet">Guides Require Internet</string>
+    <string name="noipdomainlookup">No IP Domain lookup</string>
 </resources>

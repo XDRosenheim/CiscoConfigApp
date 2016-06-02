@@ -17,7 +17,7 @@ public class HomeActivity extends Activity {
 
     private static final int CodeMotd = 2;
     private static final int CodeHostName = 3;
-    Button btnBack, btnSetHostname, btnSetMotd, btnSaveConfig;
+    Button btnBack, btnSetHostname, btnSetMotd, btnSaveConfig, btnNoIpDomainLookup;
     TextView txtConsole;
     ScrollView viewterminal;
     private Socket Sock;
@@ -38,26 +38,7 @@ public class HomeActivity extends Activity {
         btnSetMotd = (Button) findViewById(R.id.btnSetMotd);
         btnBack = (Button) findViewById(R.id.btnBack);
         btnSaveConfig = (Button) findViewById(R.id.btnSaveConfig);
-        viewterminal = (ScrollView) findViewById(R.id.viewterminal);
-        txtConsole = (TextView) findViewById(R.id.txtConsole);
-
-        Thread t1 = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    String reader;
-                    String newText = "";
-                    reader = In.readLine();
-                    newText += txtConsole.getText().toString() + "\n" + reader;
-                    if (reader != null) {
-                        txtConsole.setText(newText);
-                        viewterminal.fullScroll(View.FOCUS_DOWN);
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+        btnNoIpDomainLookup = (Button) findViewById(R.id.btnNoIpDomainLookup);
 
         btnSetMotd.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,6 +62,12 @@ public class HomeActivity extends Activity {
                 cmd.copyRunToStart();
             }
         });
+        btnNoIpDomainLookup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cmd.noIpDomainLookUp();
+            }
+        });
 
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,8 +76,6 @@ public class HomeActivity extends Activity {
                 finish(); // Die.
             }
         });
-
-        t1.start();
     }
 
     private void CloseAll() {
