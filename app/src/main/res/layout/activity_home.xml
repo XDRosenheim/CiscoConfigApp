@@ -37,6 +37,13 @@
             android:text="@string/home_motd" />
 
         <Button
+            android:id="@+id/btnNoIpDomainLookup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/noipdomainlookup" />
+
+        <Button
             android:id="@+id/btnSaveConfig"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,21 +56,5 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/all_back" />
-
-
-
-        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/viewterminal"
-            android:layout_width="match_parent"
-            android:layout_height="200dp"
-            android:fillViewport="true">
-
-            <TextView
-                android:id="@+id/txtConsole"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent" />
-
-        </ScrollView>
-
     </LinearLayout>
 </ScrollView>
