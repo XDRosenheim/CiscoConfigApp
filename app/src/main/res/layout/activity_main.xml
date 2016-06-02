@@ -84,6 +84,8 @@
                 android:text="@string/connect_Guides"
                 android:textSize="30sp" />
 
+
+
             <TextView
                 android:id="@+id/TxtGuides"
                 android:layout_width="wrap_content"

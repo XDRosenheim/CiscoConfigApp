@@ -35,12 +35,14 @@
                 android:id="@+id/Btn_Popup_OK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/all_OK" />
+                android:text="@string/all_OK"
+                android:onClick="BtnOK"/>
             <Button
                 android:id="@+id/Btn_Popup_Cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/all_cancel" />
+                android:text="@string/all_cancel"
+                android:onClick="BtnCancel"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

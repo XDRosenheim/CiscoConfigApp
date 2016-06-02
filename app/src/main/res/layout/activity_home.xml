@@ -50,6 +50,8 @@
             android:layout_gravity="center_horizontal"
             android:text="@string/all_back" />
 
+
+
         <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
             android:id="@+id/viewterminal"
             android:layout_width="match_parent"

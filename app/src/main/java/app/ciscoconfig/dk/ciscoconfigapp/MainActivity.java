@@ -1,20 +1,17 @@
 package app.ciscoconfig.dk.ciscoconfigapp;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.StrictMode;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -38,14 +35,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        startActivity(new Intent(MainActivity.this, HomeActivity.class));
-
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
         // Find komponenterne via ID.
         EditIpAddress = (EditText) findViewById(R.id.EditIPAdresse);
         EditPortNr = (EditText) findViewById(R.id.EditPortNr);
+
         BtnConnect = (Button) findViewById(R.id.BtnConnecting);
         BtnConnect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -164,6 +160,4 @@ public class MainActivity extends AppCompatActivity {
         NetworkInfo activeNetworkInfo = CheckNetwork.getActiveNetworkInfo();
         return activeNetworkInfo != null;
     }
-
-
 }

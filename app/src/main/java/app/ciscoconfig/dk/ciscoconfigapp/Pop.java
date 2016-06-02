@@ -17,6 +17,8 @@ import java.io.PrintWriter;
  */
 public class Pop extends Activity {
 
+    EditText TxtConsoleAnswar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,51 +33,23 @@ public class Pop extends Activity {
 
         getWindow().setLayout((int) (width * .8), (int) (height * .6));
 
-        Button PopupOK, PopupCancel;
-        final EditText TxtConsoleAnswar;
-
-
         TxtConsoleAnswar = (EditText) findViewById(R.id.TxtConsoleAnswar);
 
+    }
 
+    public void BtnOK(View v){
 
-        PopupOK = (Button) findViewById(R.id.Btn_Popup_OK);
-        PopupOK.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        String PopUpAnswer = TxtConsoleAnswar.getText().toString();
 
-                Intent ReturnAnswer = new Intent();
-                ReturnAnswer.putExtra("PopupAnswer", TxtConsoleAnswar.getText().toString());
-                setResult(RESULT_OK, ReturnAnswer);
-                finish();
+        Intent AnswerBack = new Intent();
+        AnswerBack.putExtra("PopAnswer", PopUpAnswer);
+        setResult(RESULT_OK, AnswerBack);
+        finish();
+    }
 
-                /*
-                    ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-                    cmd.setMOTD(TxtConsoleAnswar.getText().toString());
-                    Toast.makeText(getApplicationContext(), "VIRKER DET ??", Toast.LENGTH_LONG).show();
-                    finish();
+    public void BtnCancel(View v){
 
-
-
-
-                    cmd.setHostName(TxtConsoleAnswar.getText().toString());
-                    PrintWriter Out = Singleton.getOut();
-                    for (String str : cmd.array) {
-                        Out.println(str);
-
-
-                }
-                finish();
-                */
-            }
-        });
-        PopupCancel = (Button) findViewById(R.id.Btn_Popup_Cancel);
-        PopupCancel.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(getApplicationContext(), "Ops. Something went wrong. Try again", Toast.LENGTH_SHORT).show();
-                finish();
-            }
-        });
+        Toast.makeText(getApplicationContext(), "Ops. Something went wrong. Try again", Toast.LENGTH_SHORT).show();
+        finish();
     }
 }

@@ -26,7 +26,8 @@ public class HomeActivity extends Activity {
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
-    String Oldvalue = "";
+    int CodeMotd = 2;
+    int CodeHostName = 3;
 
 
     @Override
@@ -71,9 +72,9 @@ public class HomeActivity extends Activity {
             public void onClick(View v) {
 
 
-                    Intent GetMotd = new Intent(HomeActivity.this, Pop.class);
-                    startActivityForResult(GetMotd, RESULT_OK);
 
+                Intent GetPopupData = new Intent(HomeActivity.this, Pop.class);
+                startActivityForResult(GetPopupData, CodeMotd);
             }
         });
 
@@ -82,9 +83,8 @@ public class HomeActivity extends Activity {
             public void onClick(View v) {
                 ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
 
-                Intent GetHostName = new Intent(HomeActivity.this, Pop.class);
-                GetHostName.putExtra("Hostname", true);
-                startActivity(GetHostName);
+                Intent GetPopupData = new Intent(HomeActivity.this, Pop.class);
+                startActivityForResult(GetPopupData, CodeHostName);
 
                 for (String sendMe : cmd.array) {
                     Out.println(sendMe); // Send commands to device.
@@ -119,27 +119,34 @@ public class HomeActivity extends Activity {
     }
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+
         ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
-        String Answer = data.getStringExtra("PopupAnswer");
 
+        if(requestCode==CodeHostName){
 
-        if (requestCode == Popup_SvarMotd) {
-            if (resultCode == RESULT_OK) {
+            if(resultCode == RESULT_OK) {
+                String Svaret = data.getStringExtra("PopAnswer");
 
-                cmd.setMOTD(Answer);
-                Toast.makeText(getApplicationContext(), Answer, Toast.LENGTH_SHORT).show();
+                cmd.setHostName(Svaret);
 
-                for (String str : cmd.array) {
-                    Out.println(str);
-                }
-            }
-        }else if (requestCode == Popup_SvarHostname) {
-            if (resultCode == RESULT_OK) {
-
-                cmd.setMOTD(Answer);
             }
         }
+
+        if(requestCode==CodeMotd){
+
+            if(resultCode == RESULT_OK) {
+                String Svaret = data.getStringExtra("PopAnswer");
+
+                cmd.setMOTD(Svaret);
+
+            }
+        }
+
+
+
     }
+
 }
+
