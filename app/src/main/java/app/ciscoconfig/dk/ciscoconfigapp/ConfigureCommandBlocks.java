@@ -1,5 +1,8 @@
 package app.ciscoconfig.dk.ciscoconfigapp;
 
+import java.io.BufferedReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 
 /**
@@ -7,155 +10,205 @@ import java.util.ArrayList;
  * Creation date 20-05-2016
  */
 public class ConfigureCommandBlocks {
-    public ArrayList<String> array = new ArrayList<String>();
+
+    private Socket Sock;
+    private PrintWriter Out;
+    private BufferedReader In;
+
+
+
 
     // Swtich trunking
-    public ArrayList SwitchTrunking(String inferfaceRange, String Vlan) {
-        array.clear();
-        array.add("conf t");
-        array.add("int range fa " + inferfaceRange);
-        array.add("shut");
-        array.add("switchport mode trunk");
-        array.add("switchport trunknative vlan " + Vlan);
-        return array;
+    public void SwitchTrunking(String inferfaceRange, String Vlan) {
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+
+        Out.println("conf t");
+        Out.println("int range fa " + inferfaceRange);
+        Out.println("shut");
+        Out.println("switchport mode trunk");
+        Out.println("switchport trunknative vlan " + Vlan);
     }
 
 
     // Set static route
-    public ArrayList setStaticRoute(String Network, String Netmask, String NextHop) {
-        array.clear();
-        array.add("conf t");
-        array.add("ip route " + Network + " " + Netmask + " " + NextHop);
-        array.add("end");
-        return array;
+    public void setStaticRoute(String Network, String Netmask, String NextHop) {
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+
+        Out.println("conf t");
+        Out.println("ip route " + Network + " " + Netmask + " " + NextHop);
+        Out.println("end");
     }
 
     // set OSPF link priority
-    public ArrayList OSPFLinkPRiority(String EthernetInterface, String priorityValue) {
-        array.clear();
-        array.add("conf t");
-        array.add("int " + EthernetInterface);
-        array.add("ip ospf priority " + priorityValue);
-        array.add("no shut");
-        array.add("end");
-        return array;
+    public void OSPFLinkPRiority(String EthernetInterface, String priorityValue) {
+
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+
+        Out.println("conf t");
+        Out.println("int " + EthernetInterface);
+        Out.println("ip ospf priority " + priorityValue);
+        Out.println("no shut");
+        Out.println("end");
+        
     }
 
     // configure ospf protocol // not 100% sure on some of the theory with network vs area
-    public ArrayList configureOSPF(String processID, String network, String netmask, String SerialInterface, String Speed) {
-        array.clear();
-        array.add("conf t");
-        array.add("Router ospf " + processID);
-        array.add("network " + network + " " + netmask + " area " + network);
-        array.add("Default-information originate");
-        array.add("Auto-cost reference-bandwidth 10000");
-        array.add("end");
-        array.add("conf t");
-        array.add("int " + SerialInterface);
-        array.add("no shut");
-        array.add("Bandwidth " + Speed);
+    public void configureOSPF(String processID, String network, String netmask, String SerialInterface, String Speed) {
 
-        array.add("end");
-        return array;
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+
+        Out.println("conf t");
+        Out.println("Router ospf " + processID);
+        Out.println("network " + network + " " + netmask + " area " + network);
+        Out.println("Default-information originate");
+        Out.println("Auto-cost reference-bandwidth 10000");
+        Out.println("end");
+        Out.println("conf t");
+        Out.println("int " + SerialInterface);
+        Out.println("no shut");
+        Out.println("Bandwidth " + Speed);
+
+        Out.println("end");
+        
     }
 
     // configure EIGRP protocol // not 100% sure on some of the theory with network vs ipaddress
-    public ArrayList configureEIGRP(String VIName, String network, String SerialInterface, String Speed, String ipaddress, String netmask) {
-        array.clear();
-        array.add("conf t");
-        array.add("router eigrp " + VIName);
-        array.add("No auto-summary");
-        array.add("network " + network);
-        array.add("Redistribute static");
-        array.add("end");
-        array.add("conf t");
-        array.add("int " + SerialInterface);
-        array.add("bandwidth " + Speed);
-        array.add("ip summary-adress eigrp " + VIName + " " + ipaddress + " " + netmask);
-        array.add("end");
-        return array;
+    public void configureEIGRP(String VIName, String network, String SerialInterface, String Speed, String ipaddress, String netmask) {
+
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+
+        Out.println("conf t");
+        Out.println("router eigrp " + VIName);
+        Out.println("No auto-summary");
+        Out.println("network " + network);
+        Out.println("Redistribute static");
+        Out.println("end");
+        Out.println("conf t");
+        Out.println("int " + SerialInterface);
+        Out.println("bandwidth " + Speed);
+        Out.println("ip summary-adress eigrp " + VIName + " " + ipaddress + " " + netmask);
+        Out.println("end");
+        
     }
 
     //configure Rip Protocol
-    public ArrayList configureRIPv2(String SerialInterface, String network) {
-        array.clear();
-        array.add("conf t");
-        array.add("router rip");
-        array.add("Version 2");
-        array.add("No Auto-Summary");
-        array.add("network " + network);
-        array.add("passive interface " + SerialInterface);
-        array.add("default-information originate");
-        array.add("clear ip route");
-        array.add("end");
-        return array;
+    public void configureRIPv2(String SerialInterface, String network) {
+
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+        Out.println("conf t");
+        Out.println("router rip");
+        Out.println("Version 2");
+        Out.println("No Auto-Summary");
+        Out.println("network " + network);
+        Out.println("passive interface " + SerialInterface);
+        Out.println("default-information originate");
+        Out.println("clear ip route");
+        Out.println("end");
     }
 
     //Configure Serieal interface.
-    public ArrayList setSerialInterface(String Clock, String SerialInterface, String Description, String ip, String subnetmask) {
-        array.clear();
-        array.add("conf t");
-        array.add("int " + SerialInterface);
+    public void setSerialInterface(String Clock, String SerialInterface, String Description, String ip, String subnetmask) {
+
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+        Out.println("conf t");
+        Out.println("int " + SerialInterface);
         if (!Description.equals("")) {
-            array.add("description " + Description);
+            Out.println("description " + Description);
         }
-        array.add("ip address " + ip + " " + subnetmask);
+        Out.println("ip address " + ip + " " + subnetmask);
         // Only on DCE side
         if (!Clock.equals("")) {
-            array.add("clock rate " + Clock);
+            Out.println("clock rate " + Clock);
         }
-        array.add("no shut");
-        array.add("end");
-        return array;
+        Out.println("no shut");
+        Out.println("end");
     }
 
     //no ip domain-lookup
-    public ArrayList noIpDomainLookUp() {
-        array.clear();
-        array.add("conf t");
-        array.add("No ip domain-lookup");
-        array.add("end");
-        return array;
+    public void noIpDomainLookUp() {
+
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+        Out.println("conf t");
+        Out.println("No ip domain-lookup");
+        Out.println("end");
+        
     }
 
     // sethostname
-    public ArrayList setHostName(String name) {
-        array.clear();
-        array.add("conf t");
-        array.add("hostname " + name);
-        array.add("end");
-        return array;
+    public void setHostName(String name) {
+
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+        Out.println("conf t");
+        Out.println("hostname " + name);
+        Out.println("end");
     }
 
     // Set ip on FastEthernet interface          fa/fe/Serial+ x/y
-    public ArrayList setIpFeastEthernetInterface(String Interface, String Description, String ip, String subnetmask) {
-        array.clear();
-        array.add("conf t");
-        array.add("int " + Interface);
+    public void setIpFeastEthernetInterface(String Interface, String Description, String ip, String subnetmask) {
+
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+        Out.println("conf t");
+        Out.println("int " + Interface);
         if (!Description.equals("")) {
-            array.add("description " + Description);
+            Out.println("description " + Description);
         }
-        array.add("ip address " + ip + " " + subnetmask);
-        array.add("no shut");
-        array.add("end");
-        return array;
+        Out.println("ip address " + ip + " " + subnetmask);
+        Out.println("no shut");
+        Out.println("end");
     }
 
     // Set Messages Of the Day Banner.
-    public ArrayList setMOTD(String msg) {
-        array.clear();
-        array.add("conf t");
-        array.add("banner motd #" + msg + "#");
-        array.add("end");
-        return array;
+    public void setMOTD(String msg) {
+
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+        Out.println("conf t");
+        Out.println("banner motd #" + msg + "#");
+        Out.println("end");
     }
 
     // Save the Running configuration to the startup.
-    public ArrayList copyRunToStart() {
-        array.clear();
-        array.add("copy run start");
-        array.add(""); // confirm copy
-        array.add("end");
-        return array;
+    public void copyRunToStart() {
+
+        Sock = Singleton.getSocket();
+        Out = Singleton.getOut();
+        In = Singleton.getIn();
+
+        Out.println("copy run start");
+        Out.println(""); // confirm copy
+        Out.println("end");
+        
     }
 }
