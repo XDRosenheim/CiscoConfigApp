@@ -26,9 +26,7 @@ public class Pop_TwoEdittext extends Activity {
     }
 
     public void BtnOK(View v){
-        String[] PopUpAnswer = new String[0];
-        PopUpAnswer[0] = FirstInput.getText().toString();
-        PopUpAnswer[1] = SecondInput.getText().toString();
+        String[] PopUpAnswer = { FirstInput.getText().toString(), SecondInput.getText().toString() };
         Intent AnswerBack = new Intent();
         AnswerBack.putExtra("PopMultiAnswer", PopUpAnswer);
         setResult(RESULT_OK, AnswerBack);
