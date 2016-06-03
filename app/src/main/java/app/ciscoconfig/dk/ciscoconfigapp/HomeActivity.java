@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -62,6 +63,7 @@ public class HomeActivity extends Activity {
                 cmd.copyRunToStart();
             }
         });
+
         btnNoIpDomainLookup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,6 +121,9 @@ public class HomeActivity extends Activity {
                     String[] Svaret = data.getStringArrayExtra("PopAnswer");
                     cmd.configureRIPv2(Svaret[0], Svaret[1]);
                 }
+            }
+            default: {
+                Toast.makeText(getApplicationContext(), "Something happen!!", Toast.LENGTH_LONG);
             }
         }
     }

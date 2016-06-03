@@ -40,6 +40,8 @@
 
         <activity android:name=".Pop_SingleEdittext"
             android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".Pop_TwoEdittext"
+            android:theme="@style/AppTheme.CustomTheme" />
     </application>
 
 </manifest>
