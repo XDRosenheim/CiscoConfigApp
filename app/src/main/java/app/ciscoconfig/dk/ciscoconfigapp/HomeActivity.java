@@ -5,8 +5,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ScrollView;
-import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -15,16 +13,17 @@ import java.net.Socket;
 
 public class HomeActivity extends Activity {
 
-    private static final int CodeMotd = 2;
-    private static final int CodeHostName = 3;
-    Button btnBack, btnSetHostname, btnSetMotd, btnSaveConfig, btnNoIpDomainLookup;
-    TextView txtConsole;
-    ScrollView viewterminal;
+    private static final int CodeMotd = 374;
+    private static final int CodeHostName = 157;
+    private static final int CodeRip = 268;
+    Button btnBack, btnSetHostname, btnSetMotd,
+            btnSaveConfig, btnNoIpDomainLookup, btnConfigRip;
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
 
     ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,11 +38,12 @@ public class HomeActivity extends Activity {
         btnBack = (Button) findViewById(R.id.btnBack);
         btnSaveConfig = (Button) findViewById(R.id.btnSaveConfig);
         btnNoIpDomainLookup = (Button) findViewById(R.id.btnNoIpDomainLookup);
+        btnConfigRip = (Button) findViewById(R.id.btnConfigRip);
 
         btnSetMotd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent GetPopupData = new Intent(HomeActivity.this, Pop.class);
+                Intent GetPopupData = new Intent(getApplicationContext(), Pop_SingleEdittext.class);
                 startActivityForResult(GetPopupData, CodeMotd);
             }
         });
@@ -51,7 +51,7 @@ public class HomeActivity extends Activity {
         btnSetHostname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent GetPopupData = new Intent(HomeActivity.this, Pop.class);
+                Intent GetPopupData = new Intent(getApplicationContext(), Pop_SingleEdittext.class);
                 startActivityForResult(GetPopupData, CodeHostName);
             }
         });
@@ -69,17 +69,25 @@ public class HomeActivity extends Activity {
             }
         });
 
+        btnConfigRip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent GetPopupData = new Intent(getApplicationContext(), Pop_TwoEdittext.class);
+                startActivityForResult(GetPopupData, CodeRip);
+            }
+        });
+
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 CloseAll();
-                finish(); // Die.
+                finish(); // Die potato.
             }
         });
     }
 
     private void CloseAll() {
-        //Lukker alle forbindelserne ned igen.
+        // Lukker alle forbindelserne ned igen.
         try {
             In.close();
             Out.close();
@@ -106,7 +114,12 @@ public class HomeActivity extends Activity {
                     cmd.setMOTD(Svaret);
                 }
             }
+            case CodeRip: {
+                if (resultCode == RESULT_OK) {
+                    String[] Svaret = data.getStringArrayExtra("PopAnswer");
+                    cmd.configureRIPv2(Svaret[0], Svaret[1]);
+                }
+            }
         }
     }
 }
-

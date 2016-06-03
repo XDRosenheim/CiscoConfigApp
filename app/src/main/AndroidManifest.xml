@@ -38,7 +38,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
 
-        <activity android:name=".Pop"
+        <activity android:name=".Pop_SingleEdittext"
             android:theme="@style/AppTheme.CustomTheme" />
     </application>
 

@@ -35,4 +35,6 @@
     <string name="guides_vejen_til_google">Go to Google</string>
     <string name="guide_txt_req_internet">Guides Require Internet</string>
     <string name="noipdomainlookup">No IP Domain lookup</string>
+    <string name="pop_title">Enter \'\'info\'\' here.</string>
+    <string name="home_config_rip">Configure RIPv2</string>
 </resources>

@@ -44,6 +44,13 @@
             android:text="@string/noipdomainlookup" />
 
         <Button
+            android:id="@+id/btnConfigRip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/home_config_rip" />
+
+        <Button
             android:id="@+id/btnSaveConfig"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

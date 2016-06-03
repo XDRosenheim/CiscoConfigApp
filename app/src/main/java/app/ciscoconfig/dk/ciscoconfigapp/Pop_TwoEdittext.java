@@ -8,26 +8,29 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class Pop extends Activity {
+public class Pop_TwoEdittext extends Activity {
 
-    EditText TxtConsoleAnswar;
+    EditText FirstInput, SecondInput;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pop);
+        setContentView(R.layout.pop_two_eddittext);
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
         getWindow().setLayout((int) (width * .8), (int) (height * .6));
-        TxtConsoleAnswar = (EditText) findViewById(R.id.TxtConsoleAnswar);
+        FirstInput = (EditText) findViewById(R.id.FirstInput);
+        SecondInput = (EditText) findViewById(R.id.SecondInput);
     }
 
     public void BtnOK(View v){
-        String PopUpAnswer = TxtConsoleAnswar.getText().toString();
+        String[] PopUpAnswer = new String[0];
+        PopUpAnswer[0] = FirstInput.getText().toString();
+        PopUpAnswer[1] = FirstInput.getText().toString();
         Intent AnswerBack = new Intent();
-        AnswerBack.putExtra("PopAnswer", PopUpAnswer);
+        AnswerBack.putExtra("PopMultiAnswer", PopUpAnswer);
         setResult(RESULT_OK, AnswerBack);
         finish();
     }

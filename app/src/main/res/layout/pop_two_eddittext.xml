@@ -5,6 +5,7 @@
     android:padding="@dimen/activity_horizontal_margin"
     android:background="#00252525"
     android:gravity="center">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -14,18 +15,22 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="This is the title"
-            android:textSize="30dp"
-            android:gravity="left" />
+            android:text="@string/pop_title"
+            android:textSize="30sp" />
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#FF00FFFF" />
+
         <EditText
-            android:id="@+id/TxtConsoleAnswar"
+            android:id="@+id/FirstInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Textbox 1" />
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/SecondInput"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,13 +41,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/all_OK"
-                android:onClick="BtnOK"/>
+                android:onClick="BtnOK" />
             <Button
                 android:id="@+id/Btn_Popup_Cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/all_cancel"
-                android:onClick="BtnCancel"/>
+                android:onClick="BtnCancel" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
