@@ -25,7 +25,7 @@ public class HomeActivity extends Activity {
     private PrintWriter Out;
     private BufferedReader In;
 
-    ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
+    private ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,13 +104,12 @@ public class HomeActivity extends Activity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        ConfigureCommandBlocks cmd = new ConfigureCommandBlocks();
         switch (requestCode) {
             case CodeHostName: {
                 if (resultCode == RESULT_OK) {
                     String Svaret = data.getStringExtra("PopAnswer");
                     cmd.setHostName(Svaret);
-                    Toast.makeText(getApplicationContext(), "HOSTNAME set.", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(), "HOSTNAME was set.", Toast.LENGTH_LONG).show();
                 }
                 break;
             }
@@ -118,7 +117,7 @@ public class HomeActivity extends Activity {
                 if (resultCode == RESULT_OK) {
                     String Svaret = data.getStringExtra("PopAnswer");
                     cmd.setMOTD(Svaret);
-                    Toast.makeText(getApplicationContext(), "MOTD set.", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(), "MOTD was set.", Toast.LENGTH_LONG).show();
                 }
                 break;
             }
@@ -126,7 +125,7 @@ public class HomeActivity extends Activity {
                 if (resultCode == RESULT_OK) {
                     String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
                     cmd.configureRIPv2(Svaret[0], Svaret[1]);
-                    Toast.makeText(getApplicationContext(), "RIP set.", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(), "RIP was set.", Toast.LENGTH_LONG).show();
                 }
                 break;
             }
@@ -134,7 +133,7 @@ public class HomeActivity extends Activity {
                 if (resultCode == RESULT_OK) {
                     String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
                     cmd.setSerialInterface(Svaret[0], Svaret[1], Svaret[2], Svaret[3], Svaret[4]);
-                    Toast.makeText(getApplicationContext(), "SERIAL INTERFACE set.", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(), "SERIAL INTERFACE was set.", Toast.LENGTH_LONG).show();
                 }
                 break;
             }
@@ -142,12 +141,12 @@ public class HomeActivity extends Activity {
                 if (resultCode == RESULT_OK) {
                     String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
                     cmd.setIpFeastEthernetInterface(Svaret[0], Svaret[1], Svaret[2], Svaret[3]);
-                    Toast.makeText(getApplicationContext(), "SERIAL INTERFACE set.", Toast.LENGTH_LONG);
+                    Toast.makeText(getApplicationContext(), "FAST ETHERNET INTERFACE was set.", Toast.LENGTH_LONG).show();
                 }
                 break;
             }
             default: {
-                Toast.makeText(getApplicationContext(), "Something happen!!", Toast.LENGTH_LONG);
+                Toast.makeText(getApplicationContext(), "Something happen!!", Toast.LENGTH_LONG).show();
                 break;
             }
         }
