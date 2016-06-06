@@ -11,6 +11,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.util.ArrayList;
 
 public class HomeActivity extends Activity {
 
@@ -108,22 +109,29 @@ public class HomeActivity extends Activity {
                 if (resultCode == RESULT_OK) {
                     String Svaret = data.getStringExtra("PopAnswer");
                     cmd.setHostName(Svaret);
+                    Toast.makeText(getApplicationContext(), "HOSTNAME set.", Toast.LENGTH_LONG);
                 }
+                break;
             }
             case CodeMotd: {
                 if (resultCode == RESULT_OK) {
                     String Svaret = data.getStringExtra("PopAnswer");
                     cmd.setMOTD(Svaret);
+                    Toast.makeText(getApplicationContext(), "MOTD set.", Toast.LENGTH_LONG);
                 }
+                break;
             }
             case CodeRip: {
                 if (resultCode == RESULT_OK) {
-                    String[] Svaret = data.getStringArrayExtra("PopAnswer");
+                    String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
                     cmd.configureRIPv2(Svaret[0], Svaret[1]);
+                    Toast.makeText(getApplicationContext(), "RIP set.", Toast.LENGTH_LONG);
                 }
+                break;
             }
             default: {
                 Toast.makeText(getApplicationContext(), "Something happen!!", Toast.LENGTH_LONG);
+                break;
             }
         }
     }
