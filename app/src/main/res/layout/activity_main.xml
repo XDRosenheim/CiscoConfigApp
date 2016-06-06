@@ -37,7 +37,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/connect_ipAddress"
-                android:inputType="phone" />
+                android:inputType="phone"
+
+                android:text="192.168.1.30"
+
+                />
 
             <EditText
                 android:id="@+id/EditPortNr"
@@ -53,7 +57,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/connect_telnet_password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+
+                android:text="cisco"
+
+                />
 
             <EditText
                 android:id="@+id/txtSecretPassword"
@@ -61,7 +69,11 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:hint="@string/connect_secret_password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+
+                android:text="class"
+                
+                />
         </LinearLayout>
 
         <LinearLayout
