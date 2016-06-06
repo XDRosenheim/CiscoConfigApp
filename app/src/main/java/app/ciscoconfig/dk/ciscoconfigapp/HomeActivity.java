@@ -11,13 +11,14 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.Socket;
-import java.util.ArrayList;
 
 public class HomeActivity extends Activity {
 
     private static final int CodeMotd = 374;
     private static final int CodeHostName = 157;
     private static final int CodeRip = 268;
+    private static final int CodeSerialInterface = 130;
+    private static final int CodeFastInterface = 565;
     Button btnBack, btnSetHostname, btnSetMotd,
             btnSaveConfig, btnNoIpDomainLookup, btnConfigRip;
     private Socket Sock;
@@ -126,6 +127,22 @@ public class HomeActivity extends Activity {
                     String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
                     cmd.configureRIPv2(Svaret[0], Svaret[1]);
                     Toast.makeText(getApplicationContext(), "RIP set.", Toast.LENGTH_LONG);
+                }
+                break;
+            }
+            case CodeSerialInterface: {
+                if (resultCode == RESULT_OK) {
+                    String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
+                    cmd.setSerialInterface(Svaret[0], Svaret[1], Svaret[2], Svaret[3], Svaret[4]);
+                    Toast.makeText(getApplicationContext(), "SERIAL INTERFACE set.", Toast.LENGTH_LONG);
+                }
+                break;
+            }
+            case CodeFastInterface: {
+                if (resultCode == RESULT_OK) {
+                    String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
+                    cmd.setIpFeastEthernetInterface(Svaret[0], Svaret[1], Svaret[2], Svaret[3]);
+                    Toast.makeText(getApplicationContext(), "SERIAL INTERFACE set.", Toast.LENGTH_LONG);
                 }
                 break;
             }
