@@ -43,19 +43,23 @@ public class HomeActivity extends Activity {
         btnNoIpDomainLookup = (Button) findViewById(R.id.btnNoIpDomainLookup);
         btnConfigRip = (Button) findViewById(R.id.btnConfigRip);
 
-        btnSetMotd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent GetPopupData = new Intent(getApplicationContext(), Pop_SingleEdittext.class);
-                startActivityForResult(GetPopupData, CodeMotd);
-            }
-        });
-
         btnSetHostname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent GetPopupData = new Intent(getApplicationContext(), Pop_SingleEdittext.class);
+                GetPopupData.putExtra("Title", "Set hostname");
+                GetPopupData.putExtra("Hint", "Write Hostname here");
                 startActivityForResult(GetPopupData, CodeHostName);
+            }
+        });
+
+        btnSetMotd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent GetPopupData = new Intent(getApplicationContext(), Pop_SingleEdittext.class);
+                GetPopupData.putExtra("Title", "Set banner");
+                GetPopupData.putExtra("Hint", "Write your banner here");
+                startActivityForResult(GetPopupData, CodeMotd);
             }
         });
 
@@ -77,6 +81,9 @@ public class HomeActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent GetPopupData = new Intent(getApplicationContext(), Pop_TwoEdittext.class);
+                GetPopupData.putExtra("Title", "Set RipV2");
+                GetPopupData.putExtra("FirstInput", "Interface");
+                GetPopupData.putExtra("SecondInput", "Network");
                 startActivityForResult(GetPopupData, CodeRip);
             }
         });

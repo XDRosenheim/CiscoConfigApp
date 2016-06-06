@@ -21,7 +21,7 @@ public class GuidesActivity extends AppCompatActivity {
         OsiModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri OsiModelUri = Uri.parse("http://www.cisco.com/cpress/cc/td/cpress/fund/ith/ith01gb.htm#xtocid166844");
+                Uri OsiModelUri = Uri.parse("http://goo.gl/D5EXPH");
                 Intent intentOsiModel = new Intent(Intent.ACTION_VIEW, OsiModelUri);
                 startActivity(intentOsiModel);
             }
@@ -32,7 +32,7 @@ public class GuidesActivity extends AppCompatActivity {
         RouterModel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri RouterModelUri = Uri.parse("http://www.cisco.com/c/en/us/products/routers/product-listing.html");
+                Uri RouterModelUri = Uri.parse("http://goo.gl/gPdJDe");
                 Intent intentRouterModel = new Intent(Intent.ACTION_VIEW, RouterModelUri);
                 startActivity(intentRouterModel);
             }
@@ -43,7 +43,7 @@ public class GuidesActivity extends AppCompatActivity {
         Switchmodels.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri SwitchModelUri = Uri.parse("http://www.cisco.com/c/en/us/products/switches/product-listing.html");
+                Uri SwitchModelUri = Uri.parse("http://goo.gl/Fczg0H");
                 Intent intenSwitchModel = new Intent(Intent.ACTION_VIEW, SwitchModelUri);
                 startActivity(intenSwitchModel);
             }
@@ -54,7 +54,7 @@ public class GuidesActivity extends AppCompatActivity {
         RouterConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri RouterConfUri = Uri.parse("https://www.cisco.com/en/US/docs/routers/access/800/850/software/configuration/guide/routconf.pdf");
+                Uri RouterConfUri = Uri.parse("https://goo.gl/JtNwbq");
                 Intent intenRouter = new Intent(Intent.ACTION_VIEW, RouterConfUri);
                 startActivity(intenRouter);
             }
@@ -65,7 +65,7 @@ public class GuidesActivity extends AppCompatActivity {
         SwitchConfig.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri SwitchConfUri = Uri.parse("https://www.pantz.org/software/ios/ioscommands.html#IOSCommands");
+                Uri SwitchConfUri = Uri.parse("https://goo.gl/wiqtRs");
                 Intent intentSwitch = new Intent(Intent.ACTION_VIEW, SwitchConfUri);
                 startActivity(intentSwitch);
             }
