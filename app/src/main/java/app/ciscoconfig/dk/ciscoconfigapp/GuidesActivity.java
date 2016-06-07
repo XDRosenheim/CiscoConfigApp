@@ -76,7 +76,7 @@ public class GuidesActivity extends AppCompatActivity {
         ToGoogle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri GoogleUri = Uri.parse("http://google.Com");
+                Uri GoogleUri = Uri.parse("http://google.com");
                 Intent intentGoogle = new Intent(Intent.ACTION_VIEW, GoogleUri);
                 startActivity(intentGoogle);
             }

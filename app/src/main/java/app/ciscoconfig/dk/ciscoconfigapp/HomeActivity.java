@@ -115,6 +115,7 @@ public class HomeActivity extends Activity {
             case CodeHostName: {
                 if (resultCode == RESULT_OK) {
                     String Svaret = data.getStringExtra("PopAnswer");
+                    Svaret.replaceAll(" ","");
                     cmd.setHostName(Svaret);
                     Toast.makeText(getApplicationContext(), "HOSTNAME was set.", Toast.LENGTH_LONG).show();
                 }
