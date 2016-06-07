@@ -172,23 +172,45 @@ public class HomeActivity extends Activity {
             case CodeSerialInterface: {
                 if (resultCode == RESULT_OK) {
                     String[] AnswerFromPop = data.getStringArrayExtra("PopMultiAnswer");
-                    cmd.setSerialInterface(AnswerFromPop[0], AnswerFromPop[1], AnswerFromPop[2], AnswerFromPop[3], AnswerFromPop[4]);
-                    Toast.makeText(getApplicationContext(), "SERIAL INTERFACE was set.", Toast.LENGTH_SHORT).show();
+                    if ( checkIp(AnswerFromPop[3]) && checkIp(AnswerFromPop[4])) {
+                        cmd.setSerialInterface(AnswerFromPop[0], AnswerFromPop[1], AnswerFromPop[2], AnswerFromPop[3], AnswerFromPop[4]);
+                        Toast.makeText(getApplicationContext(), "SERIAL INTERFACE was set.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Error in ip or subnet. Try again.", Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
             }
             case CodeFastInterface: {
                 if (resultCode == RESULT_OK) {
                     String[] AnswerFromPop = data.getStringArrayExtra("PopMultiAnswer");
-                    cmd.setIpFeastEthernetInterface(AnswerFromPop[0], AnswerFromPop[1], AnswerFromPop[2], AnswerFromPop[3]);
-                    Toast.makeText(getApplicationContext(), "FAST ETHERNET INTERFACE was set.", Toast.LENGTH_SHORT).show();
+                    if ( checkIp(AnswerFromPop[2]) && checkIp(AnswerFromPop[3])) {
+                        cmd.setIpFeastEthernetInterface(AnswerFromPop[0], AnswerFromPop[1], AnswerFromPop[2], AnswerFromPop[3]);
+                        Toast.makeText(getApplicationContext(), "FAST ETHERNET INTERFACE was set.", Toast.LENGTH_SHORT).show();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Error in ip or subnet. Try again.", Toast.LENGTH_LONG).show();
+                    }
                 }
                 break;
             }
             default: {
-                Toast.makeText(getApplicationContext(), "Something happen!!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Something happen...", Toast.LENGTH_LONG).show();
                 break;
             }
+        }
+    }
+
+    private boolean checkIp(String ip) {
+        try {
+            String[] parts = ip.split("\\.");
+            if (parts.length != 4) return false;
+            for (String s : parts) {
+                int i = Integer.parseInt(s);
+                if ((i < 1) || (i > 255)) return false;
+            }
+            return true;
+        } catch (NumberFormatException nfe) {
+            return false;
         }
     }
 }
