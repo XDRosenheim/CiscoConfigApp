@@ -146,7 +146,8 @@ public class HomeActivity extends Activity {
                 if (resultCode == RESULT_OK) {
                     String AnswerFromPop = data.getStringExtra("PopAnswer");
                     AnswerFromPop.replaceAll("[^a-zA-Z0-9]+","");
-                    cmd.setHostName(AnswerFromPop);
+                    AnswerFromPop.replace(" ", "");
+                    cmd.setHostName(AnswerFromPop.trim());
                     Toast.makeText(getApplicationContext(), "HOSTNAME was set.", Toast.LENGTH_SHORT).show();
                 }
                 break;
