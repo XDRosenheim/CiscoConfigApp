@@ -24,7 +24,7 @@
             android:id="@+id/TxtConsoleAnswar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!?(){}[]"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!?(){}[]./\-_"
             android:maxLines="1" />
         <LinearLayout
             android:layout_width="match_parent"

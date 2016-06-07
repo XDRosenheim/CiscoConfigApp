@@ -28,14 +28,14 @@
             android:id="@+id/FirstInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!?(){}[]"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!?(){}[]./\-_"
             android:maxLines="1" />
 
         <EditText
             android:id="@+id/SecondInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:digits="0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!?(){}[]./\"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!?(){}[]./\-_"
             android:maxLines="1" />
 
         <LinearLayout
