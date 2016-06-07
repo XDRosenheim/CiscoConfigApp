@@ -170,8 +170,7 @@ public class HomeActivity extends Activity {
             case CodeSerialInterface: {
                 if (resultCode == RESULT_OK) {
                     String[] AnswerFromPop = data.getStringArrayExtra("PopMultiAnswer");
-                                        // Clock             Interface         Description       Ip                Subnet mask
-                    cmd.setSerialInterface(AnswerFromPop[4], AnswerFromPop[0], AnswerFromPop[1], AnswerFromPop[2], AnswerFromPop[3]);
+                    cmd.setSerialInterface(AnswerFromPop[0], AnswerFromPop[1], AnswerFromPop[2], AnswerFromPop[3], AnswerFromPop[4]);
                     Toast.makeText(getApplicationContext(), "SERIAL INTERFACE was set.", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -179,7 +178,6 @@ public class HomeActivity extends Activity {
             case CodeFastInterface: {
                 if (resultCode == RESULT_OK) {
                     String[] AnswerFromPop = data.getStringArrayExtra("PopMultiAnswer");
-                                                //  Interface         Description       IP                Subnet mask
                     cmd.setIpFeastEthernetInterface(AnswerFromPop[0], AnswerFromPop[1], AnswerFromPop[2], AnswerFromPop[3]);
                     Toast.makeText(getApplicationContext(), "FAST ETHERNET INTERFACE was set.", Toast.LENGTH_SHORT).show();
                 }

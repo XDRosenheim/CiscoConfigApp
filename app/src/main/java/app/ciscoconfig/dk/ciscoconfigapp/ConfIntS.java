@@ -25,6 +25,7 @@ public class ConfIntS extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
         getWindow().setLayout((int) (width * .8), (int) (height * .6));
+
         TextView title = (TextView) findViewById(R.id.popup_lbl_title);
         title.setText(intent.getExtras().getString("Title"));
 
@@ -35,21 +36,24 @@ public class ConfIntS extends Activity {
         TxtInterface.setHint(intent.getExtras().getString("Interface"));
 
         TxtDescription = (EditText) findViewById(R.id.TxtDescription);
-        TxtDescription.setHint(intent.getExtras().getString("Interface"));
+        TxtDescription.setHint(intent.getExtras().getString("Description"));
 
         TxtIp = (EditText) findViewById(R.id.TxtIp);
-        TxtIp.setHint(intent.getExtras().getString("Interface"));
+        TxtIp.setHint(intent.getExtras().getString("Ip"));
 
         TxtMask = (EditText) findViewById(R.id.TxtMask);
-        TxtMask.setHint(intent.getExtras().getString("Interface"));
+        TxtMask.setHint(intent.getExtras().getString("Subnet"));
     }
 
     public void BtnOK(View v){
-        String[] PopUpAnswer = { TxtInterface.getText().toString(),
+        // Clock Interface Description Ip Subnet
+        String[] PopUpAnswer = {
+                TxtClock.getText().toString(),
+                TxtInterface.getText().toString(),
                 TxtDescription.getText().toString(),
                 TxtIp.getText().toString(),
-                TxtMask.getText().toString(),
-                TxtClock.getText().toString()};
+                TxtMask.getText().toString()
+        };
         Intent AnswerBack = new Intent();
         AnswerBack.putExtra("PopMultiAnswer", PopUpAnswer);
         setResult(RESULT_OK, AnswerBack);
@@ -57,7 +61,6 @@ public class ConfIntS extends Activity {
     }
 
     public void BtnCancel(View v){
-        Toast.makeText(getApplicationContext(), "Canceled", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
         finish();
     }
