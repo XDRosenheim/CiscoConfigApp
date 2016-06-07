@@ -12,11 +12,10 @@
         android:gravity="center"
         android:background="#252525">
         <TextView
+            android:id="@+id/popup_lbl_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/pop_title"
-            android:textSize="30dp"
-            android:id="@+id/lbl_title" />
+            android:textSize="30dp" />
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
@@ -24,7 +23,8 @@
         <EditText
             android:id="@+id/TxtConsoleAnswar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:maxLines="1" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

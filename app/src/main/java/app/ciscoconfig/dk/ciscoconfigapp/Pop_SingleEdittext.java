@@ -23,7 +23,7 @@ public class Pop_SingleEdittext extends Activity {
         int width = dm.widthPixels;
         int height = dm.heightPixels;
         getWindow().setLayout((int) (width * .8), (int) (height * .4));
-        TextView title = (TextView) findViewById(R.id.lbl_title);
+        TextView title = (TextView) findViewById(R.id.popup_lbl_title);
         title.setText(intent.getExtras().getString("Title"));
         TxtConsoleAnswar = (EditText) findViewById(R.id.TxtConsoleAnswar);
         TxtConsoleAnswar.setHint(intent.getExtras().getString("Hint"));

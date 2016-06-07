@@ -28,7 +28,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/home_hostname" />
-
         <Button
             android:id="@+id/btnSetMotd"
             android:layout_width="match_parent"
@@ -42,14 +41,24 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/noipdomainlookup" />
-
         <Button
             android:id="@+id/btnConfigRip"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/home_config_rip" />
-
+        <Button
+            android:id="@+id/btnConfigIntFE"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/home_confIntFe" />
+        <Button
+            android:id="@+id/btnConfigIntS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/home_confIntS" />
         <Button
             android:id="@+id/btnSaveConfig"
             android:layout_width="match_parent"
@@ -63,5 +72,6 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
             android:text="@string/all_back" />
+
     </LinearLayout>
 </ScrollView>

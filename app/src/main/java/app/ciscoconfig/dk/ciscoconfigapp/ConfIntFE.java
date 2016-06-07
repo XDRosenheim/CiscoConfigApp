@@ -9,38 +9,49 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class Pop_TwoEdittext extends Activity {
+public class ConfIntFE extends Activity {
 
-    EditText FirstInput, SecondInput;
+    EditText TxtInterface, TxtDescription, TxtIp, TxtMask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.pop_two_eddittext);
+        setContentView(R.layout.confintfe);
 
+        Intent intent = getIntent();
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        getWindow().setLayout((int) (width * .8), (int) (height * .6));
-        Intent intent = getIntent();
+        getWindow().setLayout((int) (width * .8), (int) (height * .5));
         TextView title = (TextView) findViewById(R.id.popup_lbl_title);
         title.setText(intent.getExtras().getString("Title"));
-        FirstInput = (EditText) findViewById(R.id.FirstInput);
-        SecondInput = (EditText) findViewById(R.id.SecondInput);
-        FirstInput.setHint(intent.getStringExtra("FirstInput"));
-        SecondInput.setHint(intent.getStringExtra("SecondInput"));
+
+        TxtInterface = (EditText) findViewById(R.id.TxtInterface);
+        TxtInterface.setHint(intent.getExtras().getString("Interface"));
+
+        TxtDescription = (EditText) findViewById(R.id.TxtDescription);
+        TxtDescription.setHint(intent.getExtras().getString("Interface"));
+
+        TxtIp = (EditText) findViewById(R.id.TxtIp);
+        TxtIp.setHint(intent.getExtras().getString("Interface"));
+
+        TxtMask = (EditText) findViewById(R.id.TxtMask);
+        TxtMask.setHint(intent.getExtras().getString("Interface"));
     }
 
     public void BtnOK(View v){
-        String[] PopUpAnswer = { FirstInput.getText().toString(), SecondInput.getText().toString() };
+        String[] PopUpAnswer = { TxtInterface.getText().toString(),
+                TxtDescription.getText().toString(),
+                TxtIp.getText().toString(),
+                TxtMask.getText().toString()};
         Intent AnswerBack = new Intent();
         AnswerBack.putExtra("PopMultiAnswer", PopUpAnswer);
         setResult(RESULT_OK, AnswerBack);
         finish();
     }
 
-    public void BtnCancel(View v){
+        public void BtnCancel(View v){
         Toast.makeText(getApplicationContext(), "Canceled", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
         finish();

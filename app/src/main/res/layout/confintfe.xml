@@ -21,11 +21,19 @@
             android:layout_height="2dp"
             android:background="#FF00FFFF" />
         <EditText
-            android:id="@+id/FirstInput"
+            android:id="@+id/TxtInterface"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <EditText
-            android:id="@+id/SecondInput"
+            android:id="@+id/TxtIp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/TxtMask"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/TxtDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
         <LinearLayout

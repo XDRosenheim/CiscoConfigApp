@@ -37,6 +37,10 @@
             android:theme="@style/AppTheme.CustomTheme" />
         <activity android:name=".Pop_TwoEdittext"
             android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".ConfIntFE"
+            android:theme="@style/AppTheme.CustomTheme" />
+        <activity android:name=".ConfIntS"
+            android:theme="@style/AppTheme.CustomTheme" />
     </application>
 
 </manifest>

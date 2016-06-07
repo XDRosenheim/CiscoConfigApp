@@ -20,7 +20,8 @@ public class HomeActivity extends Activity {
     private static final int CodeSerialInterface = 130;
     private static final int CodeFastInterface = 565;
     Button btnBack, btnSetHostname, btnSetMotd,
-            btnSaveConfig, btnNoIpDomainLookup, btnConfigRip;
+            btnSaveConfig, btnNoIpDomainLookup, btnConfigRip,
+            btnConfIntFE, btnConfIntS;
     private Socket Sock;
     private PrintWriter Out;
     private BufferedReader In;
@@ -42,6 +43,8 @@ public class HomeActivity extends Activity {
         btnSaveConfig = (Button) findViewById(R.id.btnSaveConfig);
         btnNoIpDomainLookup = (Button) findViewById(R.id.btnNoIpDomainLookup);
         btnConfigRip = (Button) findViewById(R.id.btnConfigRip);
+        btnConfIntFE = (Button) findViewById(R.id.btnConfigIntFE);
+        btnConfIntS = (Button) findViewById(R.id.btnConfigIntS);
 
         btnSetHostname.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -88,6 +91,33 @@ public class HomeActivity extends Activity {
             }
         });
 
+        btnConfIntFE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Popup = new Intent(getApplicationContext(), ConfIntFE.class);
+                Popup.putExtra("Title", "FastEthernet Interface");
+                Popup.putExtra("Interface", "Interface");
+                Popup.putExtra("Description", "Desciption");
+                Popup.putExtra("IP", "IP Address");
+                Popup.putExtra("Subnet", "Subnet Mask");
+                startActivityForResult(Popup, CodeFastInterface);
+            }
+        });
+
+        btnConfIntS.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent Popup = new Intent(getApplicationContext(), ConfIntS.class);
+                Popup.putExtra("Title", "Serial Interface");
+                Popup.putExtra("Interface", "Interface");
+                Popup.putExtra("Description", "Desciption");
+                Popup.putExtra("IP", "IP Address");
+                Popup.putExtra("Subnet", "Subnet Mask");
+                Popup.putExtra("Clock", "Clock speed");
+                startActivityForResult(Popup, CodeSerialInterface);
+            }
+        });
+
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -114,41 +144,43 @@ public class HomeActivity extends Activity {
         switch (requestCode) {
             case CodeHostName: {
                 if (resultCode == RESULT_OK) {
-                    String Svaret = data.getStringExtra("PopAnswer");
-                    cmd.setHostName(Svaret);
-                    Toast.makeText(getApplicationContext(), "HOSTNAME was set.", Toast.LENGTH_LONG).show();
+                    String AnswerFromPop = data.getStringExtra("PopAnswer");
+                    cmd.setHostName(AnswerFromPop);
+                    Toast.makeText(getApplicationContext(), "HOSTNAME was set.", Toast.LENGTH_SHORT).show();
                 }
                 break;
             }
             case CodeMotd: {
                 if (resultCode == RESULT_OK) {
-                    String Svaret = data.getStringExtra("PopAnswer");
-                    cmd.setMOTD(Svaret);
-                    Toast.makeText(getApplicationContext(), "MOTD was set.", Toast.LENGTH_LONG).show();
+                    String AnswerFromPop = data.getStringExtra("PopAnswer");
+                    cmd.setMOTD(AnswerFromPop);
+                    Toast.makeText(getApplicationContext(), "MOTD was set.", Toast.LENGTH_SHORT).show();
                 }
                 break;
             }
             case CodeRip: {
                 if (resultCode == RESULT_OK) {
-                    String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
-                    cmd.configureRIPv2(Svaret[0], Svaret[1]);
-                    Toast.makeText(getApplicationContext(), "RIP was set.", Toast.LENGTH_LONG).show();
+                    String[] AnswerFromPop = data.getStringArrayExtra("PopMultiAnswer");
+                    cmd.configureRIPv2(AnswerFromPop[0], AnswerFromPop[1]);
+                    Toast.makeText(getApplicationContext(), "RIP was set.", Toast.LENGTH_SHORT).show();
                 }
                 break;
             }
             case CodeSerialInterface: {
                 if (resultCode == RESULT_OK) {
-                    String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
-                    cmd.setSerialInterface(Svaret[0], Svaret[1], Svaret[2], Svaret[3], Svaret[4]);
-                    Toast.makeText(getApplicationContext(), "SERIAL INTERFACE was set.", Toast.LENGTH_LONG).show();
+                    String[] AnswerFromPop = data.getStringArrayExtra("PopMultiAnswer");
+                                        // Clock             Interface         Description       Ip                Subnet mask
+                    cmd.setSerialInterface(AnswerFromPop[4], AnswerFromPop[0], AnswerFromPop[1], AnswerFromPop[2], AnswerFromPop[3]);
+                    Toast.makeText(getApplicationContext(), "SERIAL INTERFACE was set.", Toast.LENGTH_SHORT).show();
                 }
                 break;
             }
             case CodeFastInterface: {
                 if (resultCode == RESULT_OK) {
-                    String[] Svaret = data.getStringArrayExtra("PopMultiAnswer");
-                    cmd.setIpFeastEthernetInterface(Svaret[0], Svaret[1], Svaret[2], Svaret[3]);
-                    Toast.makeText(getApplicationContext(), "FAST ETHERNET INTERFACE was set.", Toast.LENGTH_LONG).show();
+                    String[] AnswerFromPop = data.getStringArrayExtra("PopMultiAnswer");
+                                                //  Interface         Description       IP                Subnet mask
+                    cmd.setIpFeastEthernetInterface(AnswerFromPop[0], AnswerFromPop[1], AnswerFromPop[2], AnswerFromPop[3]);
+                    Toast.makeText(getApplicationContext(), "FAST ETHERNET INTERFACE was set.", Toast.LENGTH_SHORT).show();
                 }
                 break;
             }
