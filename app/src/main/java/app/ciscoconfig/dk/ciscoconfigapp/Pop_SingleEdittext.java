@@ -38,7 +38,6 @@ public class Pop_SingleEdittext extends Activity {
     }
 
     public void BtnCancel(View v){
-        Toast.makeText(getApplicationContext(), "Canceled", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
         finish();
     }

@@ -31,13 +31,13 @@ public class ConfIntFE extends Activity {
         TxtInterface.setHint(intent.getExtras().getString("Interface"));
 
         TxtDescription = (EditText) findViewById(R.id.TxtDescription);
-        TxtDescription.setHint(intent.getExtras().getString("Interface"));
+        TxtDescription.setHint(intent.getExtras().getString("Description"));
 
         TxtIp = (EditText) findViewById(R.id.TxtIp);
-        TxtIp.setHint(intent.getExtras().getString("Interface"));
+        TxtIp.setHint(intent.getExtras().getString("IP"));
 
         TxtMask = (EditText) findViewById(R.id.TxtMask);
-        TxtMask.setHint(intent.getExtras().getString("Interface"));
+        TxtMask.setHint(intent.getExtras().getString("Subnet"));
     }
 
     public void BtnOK(View v){
@@ -52,7 +52,6 @@ public class ConfIntFE extends Activity {
     }
 
         public void BtnCancel(View v){
-        Toast.makeText(getApplicationContext(), "Canceled", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
         finish();
     }

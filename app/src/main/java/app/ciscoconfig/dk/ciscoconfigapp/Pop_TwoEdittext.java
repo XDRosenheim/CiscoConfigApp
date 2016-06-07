@@ -41,7 +41,6 @@ public class Pop_TwoEdittext extends Activity {
     }
 
     public void BtnCancel(View v){
-        Toast.makeText(getApplicationContext(), "Canceled", Toast.LENGTH_SHORT).show();
         setResult(RESULT_CANCELED);
         finish();
     }
