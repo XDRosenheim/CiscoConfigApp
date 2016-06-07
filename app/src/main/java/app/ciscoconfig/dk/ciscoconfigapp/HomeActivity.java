@@ -154,6 +154,8 @@ public class HomeActivity extends Activity {
             case CodeMotd: {
                 if (resultCode == RESULT_OK) {
                     String AnswerFromPop = data.getStringExtra("PopAnswer");
+                    AnswerFromPop.replaceAll("#", "");
+                    AnswerFromPop.replace(" ", " Mellemrum ");
                     cmd.setMOTD(AnswerFromPop);
                     Toast.makeText(getApplicationContext(), "MOTD was set.", Toast.LENGTH_SHORT).show();
                 }
