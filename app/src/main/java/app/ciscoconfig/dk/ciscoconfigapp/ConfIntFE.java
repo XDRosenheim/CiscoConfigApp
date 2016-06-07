@@ -23,7 +23,7 @@ public class ConfIntFE extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        getWindow().setLayout((int) (width * .8), (int) (height * .5));
+        getWindow().setLayout((int) (width * .8), (int) (height * .55));
         TextView title = (TextView) findViewById(R.id.popup_lbl_title);
         title.setText(intent.getExtras().getString("Title"));
 

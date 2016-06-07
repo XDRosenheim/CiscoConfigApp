@@ -111,7 +111,7 @@ public class HomeActivity extends Activity {
                 Popup.putExtra("Title", "Serial Interface");
                 Popup.putExtra("Interface", "Interface");
                 Popup.putExtra("Description", "Desciption");
-                Popup.putExtra("IP", "IP Address");
+                Popup.putExtra("Ip", "IP Address");
                 Popup.putExtra("Subnet", "Subnet Mask");
                 Popup.putExtra("Clock", "Clock speed");
                 startActivityForResult(Popup, CodeSerialInterface);
@@ -145,9 +145,9 @@ public class HomeActivity extends Activity {
             case CodeHostName: {
                 if (resultCode == RESULT_OK) {
                     String AnswerFromPop = data.getStringExtra("PopAnswer");
-                    AnswerFromPop.replaceAll("[^a-zA-Z0-9]+","");
-                    AnswerFromPop.replace(" ", "");
-                    cmd.setHostName(AnswerFromPop.trim());
+                    AnswerFromPop = AnswerFromPop.replaceAll("[^a-zA-Z0-9]+","");
+                    //AnswerFromPop = AnswerFromPop.replace(" ", "");
+                    cmd.setHostName(AnswerFromPop);
                     Toast.makeText(getApplicationContext(), "HOSTNAME was set.", Toast.LENGTH_SHORT).show();
                 }
                 break;
@@ -155,8 +155,7 @@ public class HomeActivity extends Activity {
             case CodeMotd: {
                 if (resultCode == RESULT_OK) {
                     String AnswerFromPop = data.getStringExtra("PopAnswer");
-                    AnswerFromPop.replaceAll("#", "");
-                    AnswerFromPop.replace(" ", " Mellemrum ");
+                    AnswerFromPop = AnswerFromPop.replace(" ", "[INSERT SPACE HERE]");
                     cmd.setMOTD(AnswerFromPop);
                     Toast.makeText(getApplicationContext(), "MOTD was set.", Toast.LENGTH_SHORT).show();
                 }
