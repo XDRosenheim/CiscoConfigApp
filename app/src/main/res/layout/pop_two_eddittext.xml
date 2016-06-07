@@ -2,49 +2,61 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="@dimen/activity_horizontal_margin"
     android:background="#00252525"
-    android:gravity="center">
+    android:gravity="center"
+    android:padding="@dimen/activity_horizontal_margin">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:background="#252525"
         android:gravity="center"
-        android:background="#252525">
+        android:orientation="vertical">
+
         <TextView
             android:id="@+id/popup_lbl_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="30dp" />
+
         <View
             android:layout_width="match_parent"
             android:layout_height="2dp"
             android:background="#FF00FFFF" />
+
         <EditText
             android:id="@+id/FirstInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!?(){}[]"
+            android:maxLines="1" />
+
         <EditText
             android:id="@+id/SecondInput"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:digits="0123456789abcdefghijklmnopqrstuvwxyz ABCDEFGHIJKLMNOPQRSTUVWXYZ!?(){}[]./\"
+            android:maxLines="1" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_horizontal">
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
             <Button
                 android:id="@+id/Btn_Popup_OK"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/all_OK"
-                android:onClick="BtnOK" />
+                android:onClick="BtnOK"
+                android:text="@string/all_OK" />
+
             <Button
                 android:id="@+id/Btn_Popup_Cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/all_cancel"
-                android:onClick="BtnCancel" />
+                android:onClick="BtnCancel"
+                android:text="@string/all_cancel" />
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>
