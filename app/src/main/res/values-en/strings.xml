@@ -8,7 +8,7 @@
     <string name="connect_portNumber">Port Number (23 if left empty)</string>
     <string name="connect_noEntry">IP address is empty or invalid.</string>
     <string name="connect_Connected">Connected</string>
-    <string name="connect_connecting">Connecting…</string>
+    <string name="connect_connecting">Connecting...</string>
     <string name="guides_Guides">Guides</string>
     <string name="guides_Switch_Config">Switch Config(PDF)</string>
     <string name="guides_cisco_models">Cisco Models</string>
@@ -32,6 +32,9 @@
     <string name="home_header">Configs</string>
     <string name="home_hostname">Set Hostname</string>
     <string name="home_motd">Set banner</string>
-    <string name="home_save_config">Copy running config to startup config</string>
+    <string name="home_save_config">Copy running-config to startup-config</string>
     <string name="noipdomainlookup">No IP Domain lookup</string>
+    <string name="home_confIntFe">Configure GigabitEthernet Interface</string>
+    <string name="home_confIntS">Configure Serial Interface</string>
+    <string name="home_config_rip">Configure RIPv2</string>
 </resources>

@@ -40,7 +40,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="@string/noipdomainlookup" />
+            android:text="@string/home_noipdomainlookup" />
         <Button
             android:id="@+id/btnConfigRip"
             android:layout_width="match_parent"

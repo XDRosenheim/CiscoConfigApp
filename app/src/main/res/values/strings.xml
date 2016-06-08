@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cisco Configuration Tool</string>
-    <string name="app_title">Cake</string>
     <string name="all_back">Back</string>
     <string name="all_google" translatable="false">Google</string>
+    <string name="all_OK">OK</string>
+    <string name="all_cancel">Cancel</string>
     <string name="connect_btn_telnet">Telnet</string>
     <string name="connect_ipAddress">IP Address</string>
     <string name="connect_btn_connect">Connect</string>
     <string name="connect_portNumber">Port Number (23 if left empty)</string>
     <string name="connect_noEntry">IP address is empty or invalid.</string>
     <string name="connect_Connected">Connected</string>
-    <string name="connect_connecting">Connecting…</string>
+    <string name="connect_connecting">Connecting...</string>
     <string name="connect_Guides">Guides</string>
     <string name="connect_telnet_password">Telnet Password</string>
     <string name="connect_secret_password">Enable/Secret Password</string>
@@ -21,21 +22,12 @@
     <string name="guides_router_config">Router Config</string>
     <string name="guides_Switch_Config">Switch Config</string>
     <string name="guides_txt_req_internet">Guides Require Internet</string>
-    <string name="home_configs">Configs</string>
     <string name="home_header">Configs</string>
     <string name="home_hostname">Set hostname</string>
     <string name="home_motd">Set banner</string>
     <string name="home_save_config">Copy running config to startup config</string>
-    <string name="ethernetSetup_ipaddress">IP Address</string>
-    <string name="all_OK">OK</string>
-    <string name="all_cancel">Cancel</string>
-    <string name="guides_iso_model">OSI-Model</string>
-    <string name="guides_gobacktostart">Back</string>
-    <string name="guides_cisco_models">Cisco Models</string>
-    <string name="guides_vejen_til_google">Go to Google</string>
-    <string name="guide_txt_req_internet">Guides Require Internet</string>
-    <string name="noipdomainlookup">No IP Domain lookup</string>
-    <string name="home_confIntFe">Configure FastEthernet Interface</string>
+    <string name="home_confIntFe">Configure GigabitEthernet Interface</string>
     <string name="home_confIntS">Configure Serial Interface</string>
     <string name="home_config_rip">Configure RIPv2</string>
+    <string name="home_noipdomainlookup">No IP Domain lookup</string>
 </resources>
