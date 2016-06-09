@@ -206,7 +206,7 @@ public class HomeActivity extends Activity {
             if (parts.length != 4) return false;
             for (String s : parts) {
                 int i = Integer.parseInt(s);
-                if ((i < 1) || (i > 255)) return false;
+                if ((i < 0) || (i > 255)) return false;
             }
             return true;
         } catch (NumberFormatException nfe) {

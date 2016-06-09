@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Cisco Konfigurerings-værktøj</string>
-    <string name="app_title">Kage</string>
     <string name="all_back">Tilbage</string>
     <string name="all_OK">OK</string>
     <string name="all_cancel">Fortryd</string>
@@ -15,14 +14,9 @@
     <string name="connect_Guides">Vejledninger</string>
     <string name="connect_telnet_password">Telnet kode</string>
     <string name="connect_secret_password">Aktiverering/hemmelig kode</string>
-    <string name="guide_txt_req_internet">Guides Require Internet</string>
     <string name="guides_Guides">Vejledninger</string>
     <string name="guides_Switch_Config">Switch konfigurering(PDF)</string>
-    <string name="guides_cisco_models">Cisco modeller</string>
-    <string name="guides_vejen_til_google">Gå til Google</string>
     <string name="guides_router_config">Router konfigurering</string>
-    <string name="guides_iso_model">OSI-Modellen</string>
-    <string name="guides_gobacktostart">Tilbage</string>
     <string name="guides_osi_model">OSI-Modellen</string>
     <string name="guides_txt_req_internet">Vejledninger kræver en internetforbindelse</string>
     <string name="guides_switch_models">Switch Modeller</string>
@@ -31,9 +25,8 @@
     <string name="home_motd">Sæt banner</string>
     <string name="home_hostname">Sæt hostname</string>
     <string name="home_header">Konfigureringer</string>
-    <string name="home_configs">Konfigureringer</string>
-    <string name="home_noipdomainlookup">Kig ikke efter domæne IP</string>
     <string name="home_config_rip">Konfigurer RIPv2</string>
     <string name="home_confIntS">Konfigurer Serial Interface</string>
     <string name="home_confIntFe">Konfigurer GigabitEthernet Interface</string>
+    <string name="home_noipdomainlookup">Kig ikke efter domæne IP</string>
 </resources>
